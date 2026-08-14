@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>레시피줍줍 — SNS 레시피를 내 손안에</title>
+  <meta name="description" content="인스타그램·유튜브·블로그의 레시피를 한 번의 공유로 재료·조리법·영양정보까지 깔끔하게 정리해 보관하세요." />
+  <meta property="og:title" content="레시피줍줍" />
+  <meta property="og:description" content="SNS 레시피를 줍줍해서 내 계정에 안전하게 보관하세요." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --cream: #FBF6EE; --card: #FFFFFF; --sand: #EFE7D9;
+      --charcoal: #2E2A26; --taupe: #8C857B;
+      --brick: #B5533C; --deep-brick: #9A4230; --mustard: #D69B3C;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", Roboto, sans-serif;
+      background: var(--cream); color: var(--charcoal);
+      -webkit-font-smoothing: antialiased; line-height: 1.6;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    header { padding: 72px 0 40px; text-align: center; }
+    .logo {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--brick); color: #fff; display: inline-flex;
+      align-items: center; justify-content: center; font-size: 34px; margin-bottom: 20px;
+    }
+    h1 { font-size: 34px; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .lede { font-size: 17px; color: var(--taupe); max-width: 480px; margin: 0 auto; }
+    .cta { margin-top: 28px; }
+    .btn {
+      display: inline-block; background: var(--brick); color: #fff;
+      text-decoration: none; font-weight: 600; font-size: 16px;
+      padding: 14px 28px; border-radius: 14px; transition: background .15s;
+    }
+    .btn:hover { background: var(--deep-brick); }
+    .features { display: grid; gap: 16px; grid-template-columns: 1fr; padding: 24px 0 8px; }
+    @media (min-width: 600px) { .features { grid-template-columns: 1fr 1fr; } }
+    .feature {
+      background: var(--card); border: 1px solid var(--sand);
+      border-radius: 18px; padding: 22px 24px;
+    }
+    .feature .ico { font-size: 24px; margin-bottom: 10px; }
+    .feature h3 { font-size: 17px; margin-bottom: 6px; }
+    .feature p { font-size: 14px; color: var(--taupe); }
+    footer {
+      margin-top: 56px; padding: 32px 0 48px; border-top: 1px solid var(--sand);
+      text-align: center; font-size: 13px; color: var(--taupe);
+    }
+    footer a { color: var(--brick); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .dot { margin: 0 8px; color: var(--sand); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">🍴</div>
+      <h1>레시피줍줍</h1>
+      <p class="lede">인스타그램·유튜브·블로그에서 발견한 레시피를 한 번의 공유로 재료·조리법·영양정보까지 깔끔하게 정리해 내 계정에 보관하세요.</p>
+      <div class="cta"><a class="btn" href="#">App Store에서 다운로드</a></div>
+    </header>
+
+    <section class="features">
+      <div class="feature">
+        <div class="ico">📥</div>
+        <h3>스마트 임포트</h3>
+        <p>링크만 공유하면 캡션·영상·자막에서 재료와 조리 순서를 자동으로 추출합니다.</p>
+      </div>
+      <div class="feature">
+        <div class="ico">🥗</div>
+        <h3>영양 정보</h3>
+        <p>재료를 영양 DB에 매핑해 1인분 기준 칼로리와 영양성분을 계산해 보여줍니다.</p>
+      </div>
+      <div class="feature">
+        <div class="ico">🗂️</div>
+        <h3>내 레시피북</h3>
+        <p>줍줍한 레시피를 태그로 정리하고, 장보기 목록과 식단 계획까지 한 곳에서.</p>
+      </div>
+      <div class="feature">
+        <div class="ico">☁️</div>
+        <h3>안전한 보관</h3>
+        <p>계정에 저장돼 기기를 바꿔도 그대로. 로그인은 Apple·카카오·Google 지원.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2026 Oasis Studio · 레시피줍줍</div>
+      <div style="margin-top:8px">
+        <a href="/terms">이용약관</a>
+        <span class="dot">·</span>
+        <a href="/privacy">개인정보처리방침</a>
+        <span class="dot">·</span>
+        <a href="mailto:help@oasisstudio.net">문의</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
