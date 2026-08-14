@@ -1,101 +1,860 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>레시피줍줍 — SNS 레시피를 내 손안에</title>
-  <meta name="description" content="인스타그램·유튜브·블로그의 레시피를 한 번의 공유로 재료·조리법·영양정보까지 깔끔하게 정리해 보관하세요." />
-  <meta property="og:title" content="레시피줍줍" />
-  <meta property="og:description" content="SNS 레시피를 줍줍해서 내 계정에 안전하게 보관하세요." />
-  <meta property="og:type" content="website" />
-  <style>
-    :root {
-      --cream: #FBF6EE; --card: #FFFFFF; --sand: #EFE7D9;
-      --charcoal: #2E2A26; --taupe: #8C857B;
-      --brick: #B5533C; --deep-brick: #9A4230; --mustard: #D69B3C;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>레시피줍줍 — 요리 영상 속 레시피를 한 번에</title>
+<meta name="description" content="유튜브, 인스타, 틱톡 요리 영상을 레시피로. 재료·조리순서·장보기까지 자동으로 정리해주는 레시피줍줍.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Pretendard', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        cream:'#FBF6EE', sand:'#EFE7D9', charcoal:'#2E2A26', taupe:'#8C857B',
+        brick:'#B5533C', deepBrick:'#9A4230', mustard:'#D69B3C',
+        tile1:'#E7D3BE', tile2:'#E3B79A', tile3:'#E9CE95', tile4:'#D8A98A', tile5:'#DFC7A6',
+      },
+      borderRadius: { card:'18px', thumb:'14px' },
+      boxShadow: { soft:'0 4px 10px rgba(46,42,38,0.06)', 'soft-lg':'0 8px 30px rgba(46,42,38,0.08)' }
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Segoe UI", Roboto, sans-serif;
-      background: var(--cream); color: var(--charcoal);
-      -webkit-font-smoothing: antialiased; line-height: 1.6;
-    }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-    header { padding: 72px 0 40px; text-align: center; }
-    .logo {
-      width: 72px; height: 72px; border-radius: 50%;
-      background: var(--brick); color: #fff; display: inline-flex;
-      align-items: center; justify-content: center; font-size: 34px; margin-bottom: 20px;
-    }
-    h1 { font-size: 34px; letter-spacing: -0.02em; margin-bottom: 12px; }
-    .lede { font-size: 17px; color: var(--taupe); max-width: 480px; margin: 0 auto; }
-    .cta { margin-top: 28px; }
-    .btn {
-      display: inline-block; background: var(--brick); color: #fff;
-      text-decoration: none; font-weight: 600; font-size: 16px;
-      padding: 14px 28px; border-radius: 14px; transition: background .15s;
-    }
-    .btn:hover { background: var(--deep-brick); }
-    .features { display: grid; gap: 16px; grid-template-columns: 1fr; padding: 24px 0 8px; }
-    @media (min-width: 600px) { .features { grid-template-columns: 1fr 1fr; } }
-    .feature {
-      background: var(--card); border: 1px solid var(--sand);
-      border-radius: 18px; padding: 22px 24px;
-    }
-    .feature .ico { font-size: 24px; margin-bottom: 10px; }
-    .feature h3 { font-size: 17px; margin-bottom: 6px; }
-    .feature p { font-size: 14px; color: var(--taupe); }
-    footer {
-      margin-top: 56px; padding: 32px 0 48px; border-top: 1px solid var(--sand);
-      text-align: center; font-size: 13px; color: var(--taupe);
-    }
-    footer a { color: var(--brick); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    .dot { margin: 0 8px; color: var(--sand); }
-  </style>
+  }
+}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:'Pretendard','Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#2E2A26;background:#FBF6EE;-webkit-font-smoothing:antialiased}
+  body::before{content:'';position:fixed;inset:0;opacity:.025;pointer-events:none;z-index:9999;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  html[lang="en"] .ko{display:none!important}
+  html[lang="ko"] .en{display:none!important}
+
+  #navbar{transition:background .3s,box-shadow .3s}
+  #navbar.scrolled{background:rgba(251,246,238,.88);backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);box-shadow:0 1px 0 rgba(46,42,38,.06)}
+
+  .btn-primary{background:#B5533C;color:#fff;border-radius:12px;font-weight:600;transition:background .2s,transform .15s}
+  .btn-primary:hover{background:#9A4230;transform:translateY(-1px)}
+  .btn-dark{background:#2E2A26;color:#fff;border-radius:12px;font-weight:600;transition:background .2s,transform .15s}
+  .btn-dark:hover{background:#1d1a17;transform:translateY(-1px)}
+  .btn-outline{border:1px solid #EFE7D9;background:#fff;color:#2E2A26;border-radius:12px;font-weight:600;transition:border-color .2s,transform .15s}
+  .btn-outline:hover{border-color:#B5533C;color:#B5533C;transform:translateY(-1px)}
+
+  .card{background:#fff;border-radius:18px;box-shadow:0 4px 10px rgba(46,42,38,.06);transition:transform .25s,box-shadow .25s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(46,42,38,.1)}
+
+  .chip{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:500;line-height:1.6}
+  .chip-mustard{background:rgba(214,155,60,.12);color:#B8822F}
+  .chip-taupe{background:#EFE7D9;color:#8C857B}
+  .chip-brick{background:rgba(181,83,60,.1);color:#B5533C}
+
+  .phone-frame{background:#2E2A26;border-radius:42px;padding:10px;box-shadow:0 30px 60px -20px rgba(46,42,38,.25),0 10px 20px -10px rgba(46,42,38,.15)}
+  .phone-screen{border-radius:33px;overflow:hidden;background:#FBF6EE;position:relative}
+  .phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:110px;height:26px;background:#2E2A26;border-radius:0 0 16px 16px;z-index:10}
+
+  .marquee{display:flex;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .marquee-track{display:flex;gap:40px;animation:marquee 35s linear infinite;flex-shrink:0;padding-right:40px}
+  @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+  .faq-item .faq-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-item.open .faq-body{max-height:400px}
+  .faq-item.open .faq-icon{transform:rotate(45deg)}
+  .faq-icon{transition:transform .3s}
+
+  @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .float-slow{animation:floatY 6s ease-in-out infinite}
+  .float-slower{animation:floatY 9s ease-in-out 1s infinite}
+
+  .text-brick-gradient{background:linear-gradient(100deg,#B5533C,#D69B3C);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+  .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;pointer-events:none}
+
+  ::-webkit-scrollbar{width:8px}
+  ::-webkit-scrollbar-track{background:#FBF6EE}
+  ::-webkit-scrollbar-thumb{background:#E3D5C2;border-radius:8px}
+  ::-webkit-scrollbar-thumb:hover{background:#D4C3AB}
+
+  .status-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px 6px;font-size:12px;font-weight:600;color:#2E2A26}
+
+  /* Lang toggle */
+  .lang-toggle{display:inline-flex;background:#EFE7D9;border-radius:999px;padding:3px;font-size:12px;font-weight:600}
+  .lang-toggle button{padding:4px 12px;border-radius:999px;color:#8C857B;transition:all .2s}
+  .lang-toggle button.active{background:#fff;color:#B5533C;box-shadow:0 1px 3px rgba(46,42,38,.08)}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">🍴</div>
-      <h1>레시피줍줍</h1>
-      <p class="lede">인스타그램·유튜브·블로그에서 발견한 레시피를 한 번의 공유로 재료·조리법·영양정보까지 깔끔하게 정리해 내 계정에 보관하세요.</p>
-      <div class="cta"><a class="btn" href="#">App Store에서 다운로드</a></div>
-    </header>
 
-    <section class="features">
-      <div class="feature">
-        <div class="ico">📥</div>
-        <h3>스마트 임포트</h3>
-        <p>링크만 공유하면 캡션·영상·자막에서 재료와 조리 순서를 자동으로 추출합니다.</p>
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-xl bg-brick flex items-center justify-center">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
       </div>
-      <div class="feature">
-        <div class="ico">🥗</div>
-        <h3>영양 정보</h3>
-        <p>재료를 영양 DB에 매핑해 1인분 기준 칼로리와 영양성분을 계산해 보여줍니다.</p>
+      <span class="text-[17px] font-bold tracking-tight text-charcoal">
+        <span class="ko">레시피<span class="text-brick">줍줍</span></span>
+        <span class="en">Recipe<span class="text-brick">JupJup</span></span>
+      </span>
+    </a>
+    <div class="hidden md:flex items-center gap-7 text-[14px] font-medium text-taupe">
+      <a href="#features"><span class="ko">기능</span><span class="en">Features</span></a>
+      <a href="#how"><span class="ko">사용법</span><span class="en">How it works</span></a>
+      <a href="#recipes"><span class="ko">레시피</span><span class="en">Recipes</span></a>
+      <a href="#reviews"><span class="ko">후기</span><span class="en">Reviews</span></a>
+      <a href="#faq"><span class="ko">FAQ</span><span class="en">FAQ</span></a>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="lang-toggle">
+        <button onclick="setLang('ko')" id="btn-ko">KO</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
       </div>
-      <div class="feature">
-        <div class="ico">🗂️</div>
-        <h3>내 레시피북</h3>
-        <p>줍줍한 레시피를 태그로 정리하고, 장보기 목록과 식단 계획까지 한 곳에서.</p>
-      </div>
-      <div class="feature">
-        <div class="ico">☁️</div>
-        <h3>안전한 보관</h3>
-        <p>계정에 저장돼 기기를 바꿔도 그대로. 로그인은 Apple·카카오·Google 지원.</p>
-      </div>
-    </section>
-
-    <footer>
-      <div>© 2026 Oasis Studio · 레시피줍줍</div>
-      <div style="margin-top:8px">
-        <a href="/terms">이용약관</a>
-        <span class="dot">·</span>
-        <a href="/privacy">개인정보처리방침</a>
-        <span class="dot">·</span>
-        <a href="mailto:help@oasisstudio.net">문의</a>
-      </div>
-    </footer>
+      <a href="#download" class="btn-primary text-[13px] px-4 py-2 hidden sm:inline-block">
+        <span class="ko">앱 다운로드</span><span class="en">Download</span>
+      </a>
+    </div>
   </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative pt-28 pb-20 overflow-hidden">
+  <div class="blob w-[500px] h-[500px] bg-tile3/40 -top-20 -left-40"></div>
+  <div class="blob w-[400px] h-[400px] bg-tile2/40 top-40 -right-20"></div>
+  <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+    <div class="space-y-6">
+      <div class="inline-flex items-center gap-2 chip chip-brick">
+        <span class="w-1.5 h-1.5 rounded-full bg-brick animate-pulse"></span>
+        <span class="ko">유튜브·인스타·틱톡 레시피 자동 정리</span>
+        <span class="en">Auto-extract recipes from YouTube, Instagram &amp; TikTok</span>
+      </div>
+      <h1 class="text-[40px] md:text-[54px] leading-[1.15] font-bold text-charcoal tracking-tight">
+        <span class="ko">요리 영상 속 레시피,<br><span class="text-brick-gradient">줍줍</span>하세요</span>
+        <span class="en">Pick up every recipe<br>from cooking <span class="text-brick-gradient">videos</span></span>
+      </h1>
+      <p class="text-[17px] leading-relaxed text-taupe max-w-md">
+        <span class="ko">링크 하나만 붙여넣으면 AI가 재료, 조리 순서, 시간까지 알아서 정리. 장보기 리스트와 식단까지 한 번에.</span>
+        <span class="en">Paste a link and AI instantly extracts ingredients, steps, and cook time. Grocery lists and meal plans — all in one place.</span>
+      </p>
+      <div class="flex flex-wrap gap-3 pt-1">
+        <a href="#download" class="btn-dark inline-flex items-center gap-2.5 px-6 py-3.5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          <div class="text-left leading-tight">
+            <div class="text-[10px] opacity-70 font-normal">Download on the</div>
+            <div class="text-[15px]">App Store</div>
+          </div>
+        </a>
+        <a href="#download" class="btn-outline inline-flex items-center gap-2.5 px-6 py-3.5">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.8L13.8 12 3.6 22.2a1 1 0 01-.6-.9V2.7c0-.4.24-.72.6-.9zM14.5 12.7l2.5 2.5-10.1 5.8 7.6-8.3zm3.6-3.6l2.5 1.4c.58.33.58 1.16 0 1.5l-2.5 1.4-2.7-2.7z"/></svg>
+          <div class="text-left leading-tight">
+            <div class="text-[10px] opacity-60 font-normal">GET IT ON</div>
+            <div class="text-[15px]">Google Play</div>
+          </div>
+        </a>
+      </div>
+      <div class="flex items-center gap-3 pt-3">
+        <div class="flex -space-x-2.5">
+          <div class="w-8 h-8 rounded-full bg-tile2 border-2 border-cream flex items-center justify-center text-[11px] font-semibold text-charcoal">SJ</div>
+          <div class="w-8 h-8 rounded-full bg-tile3 border-2 border-cream flex items-center justify-center text-[11px] font-semibold text-charcoal">MK</div>
+          <div class="w-8 h-8 rounded-full bg-tile4 border-2 border-cream flex items-center justify-center text-[11px] font-semibold text-charcoal">LY</div>
+          <div class="w-8 h-8 rounded-full bg-tile5 border-2 border-cream flex items-center justify-center text-[11px] font-semibold text-charcoal">AR</div>
+        </div>
+        <p class="text-[13px] text-taupe">
+          <span class="ko"><span class="text-brick font-semibold">4.9</span>점 · 매주 새로운 집밥 유저</span>
+          <span class="en"><span class="text-brick font-semibold">4.9</span> rating · home cooks every week</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Phone mockup -->
+    <div class="flex justify-center lg:justify-end relative">
+      <div class="absolute -top-6 left-4 md:left-12 card px-4 py-2.5 float-slow z-20 flex items-center gap-2">
+        <span class="text-lg">✨</span>
+        <div>
+          <p class="text-[10px] text-taupe leading-tight"><span class="ko">AI 추출 완료</span><span class="en">AI extracted</span></p>
+          <p class="text-[12px] font-semibold text-charcoal leading-tight"><span class="ko">재료 12개 · 순서 6단계</span><span class="en">12 ingredients · 6 steps</span></p>
+        </div>
+      </div>
+      <div class="absolute bottom-8 -left-2 md:left-0 card px-4 py-2.5 float-slower z-20 flex items-center gap-2">
+        <span class="text-lg">🛒</span>
+        <div>
+          <p class="text-[10px] text-taupe leading-tight"><span class="ko">장보기 리스트</span><span class="en">Grocery list</span></p>
+          <p class="text-[12px] font-semibold text-charcoal leading-tight"><span class="ko">마트 동선별 정렬</span><span class="en">Sorted by aisle</span></p>
+        </div>
+      </div>
+      <div class="phone-frame w-[280px] relative float-slow z-10">
+        <div class="phone-notch"></div>
+        <div class="phone-screen" style="aspect-ratio:9/19.5">
+          <div class="status-bar"><span>9:41</span><span>●●● ◔</span></div>
+          <div class="px-4 pt-2 pb-3">
+            <p class="text-[22px] font-bold text-charcoal"><span class="ko">내 레시피</span><span class="en">My Recipes</span></p>
+          </div>
+          <div class="flex gap-2 px-4 pb-3 overflow-hidden">
+            <span class="chip chip-brick whitespace-nowrap"><span class="ko">🍚 집밥</span><span class="en">🍚 Home meal</span></span>
+            <span class="chip chip-taupe whitespace-nowrap"><span class="ko">🥗 다이어트</span><span class="en">🥗 Diet</span></span>
+            <span class="chip chip-taupe whitespace-nowrap"><span class="ko">⏱️ 초간단</span><span class="en">⏱️ Quick</span></span>
+          </div>
+          <div class="px-4 grid grid-cols-2 gap-3">
+            <div>
+              <div class="aspect-[4/5] rounded-thumb bg-tile2 flex items-center justify-center text-4xl mb-1.5">🍜</div>
+              <p class="text-[12px] font-semibold text-charcoal leading-tight ko">들기름 막국수</p>
+              <p class="text-[12px] font-semibold text-charcoal leading-tight en">Perilla Oil Noodles</p>
+              <div class="flex gap-1.5 mt-1"><span class="chip chip-mustard text-[10px] px-2 py-0"><span class="ko">약 15분</span><span class="en">15 min</span></span></div>
+            </div>
+            <div>
+              <div class="aspect-[4/5] rounded-thumb bg-tile3 flex items-center justify-center text-4xl mb-1.5">🍳</div>
+              <p class="text-[12px] font-semibold text-charcoal leading-tight ko">명란 계란말이</p>
+              <p class="text-[12px] font-semibold text-charcoal leading-tight en">Cod Roe Egg Roll</p>
+              <div class="flex gap-1.5 mt-1"><span class="chip chip-mustard text-[10px] px-2 py-0"><span class="ko">약 10분</span><span class="en">10 min</span></span></div>
+            </div>
+            <div>
+              <div class="aspect-[4/5] rounded-thumb bg-tile4 flex items-center justify-center text-4xl mb-1.5">🥘</div>
+              <p class="text-[12px] font-semibold text-charcoal leading-tight ko">김치찌개</p>
+              <p class="text-[12px] font-semibold text-charcoal leading-tight en">Kimchi Stew</p>
+              <div class="flex gap-1.5 mt-1"><span class="chip chip-mustard text-[10px] px-2 py-0"><span class="ko">약 25분</span><span class="en">25 min</span></span></div>
+            </div>
+            <div>
+              <div class="aspect-[4/5] rounded-thumb bg-tile5 flex items-center justify-center text-4xl mb-1.5">🥗</div>
+              <p class="text-[12px] font-semibold text-charcoal leading-tight ko">닭가슴살 샐러드</p>
+              <p class="text-[12px] font-semibold text-charcoal leading-tight en">Chicken Salad</p>
+              <div class="flex gap-1.5 mt-1"><span class="chip chip-mustard text-[10px] px-2 py-0"><span class="ko">약 15분</span><span class="en">15 min</span></span></div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 bg-cream/95 backdrop-blur border-t border-sand px-6 py-2.5 flex justify-around">
+            <div class="flex flex-col items-center gap-0.5 text-brick">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5a2 2 0 00-2 2v16a2 2 0 002 2h14a2 2 0 002-2V4a2 2 0 00-2-2zm0 18H5V4h14v16z"/><path d="M7 6h10v2H7zM7 10h10v2H7zM7 14h7v2H7z"/></svg>
+              <span class="text-[10px] font-medium ko">레시피</span><span class="text-[10px] font-medium en">Recipes</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span class="text-[10px] ko">식단</span><span class="text-[10px] en">Meal Plan</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              <span class="text-[10px] ko">장보기</span><span class="text-[10px] en">Groceries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM MARQUEE -->
+<section class="py-10 border-y border-sand/60 bg-cream">
+  <p class="text-center text-[12px] font-medium text-taupe tracking-wider mb-6">
+    <span class="ko">어디서든 주워 담으세요</span>
+    <span class="en">Save recipes from anywhere</span>
+  </p>
+  <div class="marquee">
+    <div class="marquee-track text-[15px] font-semibold text-taupe/70">
+      <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg> YouTube</span>
+      <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg> Instagram</span>
+      <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.3a4.6 4.6 0 01-2.6-1.3 4.6 4.6 0 01-1.3-3.3h-3.5v13.4a2.7 2.7 0 11-2.7-2.7c.3 0 .6 0 .9.1V8.9a6 6 0 106 6V9.2a8 8 0 004.7 1.5V7.2a4.6 4.6 0 01-.6-.9z"/></svg> TikTok</span>
+      <span class="flex items-center gap-2 ko">🔗 링크 붙여넣기</span><span class="flex items-center gap-2 en">🔗 Paste link</span>
+      <span class="flex items-center gap-2 ko">📸 스크린샷</span><span class="flex items-center gap-2 en">📸 Screenshots</span>
+      <span class="flex items-center gap-2 ko">✍️ 직접 입력</span><span class="flex items-center gap-2 en">✍️ Manual entry</span>
+      <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.2 3.6z"/></svg> YouTube</span>
+      <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg> Instagram</span>
+      <span class="flex items-center gap-2"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.6 6.3a4.6 4.6 0 01-2.6-1.3 4.6 4.6 0 01-1.3-3.3h-3.5v13.4a2.7 2.7 0 11-2.7-2.7c.3 0 .6 0 .9.1V8.9a6 6 0 106 6V9.2a8 8 0 004.7 1.5V7.2a4.6 4.6 0 01-.6-.9z"/></svg> TikTok</span>
+      <span class="flex items-center gap-2 ko">🔗 링크 붙여넣기</span><span class="flex items-center gap-2 en">🔗 Paste link</span>
+      <span class="flex items-center gap-2 ko">📸 스크린샷</span><span class="flex items-center gap-2 en">📸 Screenshots</span>
+      <span class="flex items-center gap-2 ko">✍️ 직접 입력</span><span class="flex items-center gap-2 en">✍️ Manual entry</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-xl mx-auto mb-14">
+      <p class="text-[13px] font-semibold text-brick mb-3 ko">기능</p>
+      <p class="text-[13px] font-semibold text-brick mb-3 en">Features</p>
+      <h2 class="text-[32px] md:text-[40px] font-bold text-charcoal leading-tight mb-4">
+        <span class="ko">요리 영상을 <span class="text-brick-gradient">레시피로</span></span>
+        <span class="en">Turn cooking videos into <span class="text-brick-gradient">recipes</span></span>
+      </h2>
+      <p class="text-taupe text-[16px] leading-relaxed">
+        <span class="ko">영상 속 레시피를 일일이 받아 적지 마세요. 링크만 넣으면 재료, 순서, 시간까지 알아서 정리해드립니다.</span>
+        <span class="en">No more scribbling recipes while watching videos. Paste a link and we organize ingredients, steps, and timing for you.</span>
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="card p-7">
+        <div class="w-12 h-12 rounded-xl bg-brick/10 flex items-center justify-center text-2xl mb-5">🎬</div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">영상 → 레시피 자동 추출</span><span class="en">Video to Recipe</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">유튜브, 인스타 릴스, 틱톡 링크를 붙여넣으면 AI가 영상을 분석해 재료와 조리 순서를 구조화해드려요.</span><span class="en">Paste a YouTube, Instagram Reels, or TikTok link and AI structures ingredients and steps in seconds.</span></p>
+      </div>
+      <div class="card p-7">
+        <div class="w-12 h-12 rounded-xl bg-mustard/15 flex items-center justify-center text-2xl mb-5">⏱️</div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">스마트 타임스탬프</span><span class="en">Smart Timestamps</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">각 조리 단계마다 영상 시점이 저장돼요. 긴 인트로나 잡담은 건너뛰고 바로 그 부분부터 볼 수 있어요.</span><span class="en">Each cooking step is timestamped. Skip long intros and jump straight to the action.</span></p>
+      </div>
+      <div class="card p-7">
+        <div class="w-12 h-12 rounded-xl bg-tile2/50 flex items-center justify-center text-2xl mb-5">🛒</div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">장보기 리스트 자동 생성</span><span class="en">Auto Grocery List</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">레시피를 고르면 재료가 자동으로 장보기 리스트에. 한국 대형마트 코너 순서대로 정렬되어 동선이 절약돼요.</span><span class="en">Pick recipes and ingredients are auto-compiled into a shopping list sorted by supermarket aisle.</span></p>
+      </div>
+      <div class="card p-7">
+        <div class="w-12 h-12 rounded-xl bg-tile3/60 flex items-center justify-center text-2xl mb-5">📅</div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">주간 식단 관리</span><span class="en">Weekly Meal Plan</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">아침·점심·저녁·간식으로 나눠 일주일 치 식단을 짜보세요. 저장한 레시피를 끌어다 놓기만 하면 돼요.</span><span class="en">Plan breakfast, lunch, dinner, and snacks for the week. Just drag your saved recipes in.</span></p>
+      </div>
+      <div class="card p-7">
+        <div class="w-12 h-12 rounded-xl bg-tile4/50 flex items-center justify-center text-2xl mb-5">📔</div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">나만의 쿡북</span><span class="en">Personal Cookbook</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">집밥, 다이어트, 디저트 등 카테고리로 정리하고, 원하는 대로 쿡북을 만들어 레시피를 묶어 보관하세요.</span><span class="en">Organize by category and create custom cookbooks to bundle your recipes together.</span></p>
+      </div>
+      <div class="card p-7 bg-charcoal text-white relative overflow-hidden">
+        <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-brick/30"></div>
+        <div class="relative">
+          <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-2xl mb-5">🤝</div>
+          <h3 class="text-[17px] font-bold mb-2"><span class="ko">공유하면 바로 추가</span><span class="en">Share to Save</span></h3>
+          <p class="text-white/70 text-[14px] leading-relaxed"><span class="ko">요리 영상을 보다가 공유 버튼만 누르면 레시피줍줍으로 바로 저장. iOS 공유 확장으로 앱을 나가지 않아도 돼요.</span><span class="en">Tap share on any cooking video and save instantly via the iOS share extension.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-xl mx-auto mb-16">
+      <p class="text-[13px] font-semibold text-brick mb-3 ko">사용법</p>
+      <p class="text-[13px] font-semibold text-brick mb-3 en">How it works</p>
+      <h2 class="text-[32px] md:text-[40px] font-bold text-charcoal leading-tight mb-4">
+        <span class="ko">세 단계면 끝</span><span class="en">Three simple steps</span>
+      </h2>
+      <p class="text-taupe text-[16px]"><span class="ko">더 이상 영상을 멈춰가며 받아 적지 마세요.</span><span class="en">No more pausing videos to take notes.</span></p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 relative">
+      <div class="hidden md:block absolute top-10 left-[15%] right-[15%] h-px bg-sand"></div>
+      <div class="text-center relative">
+        <div class="relative w-20 h-20 mx-auto mb-5">
+          <div class="w-20 h-20 rounded-full bg-cream flex items-center justify-center text-3xl shadow-soft relative z-10">🔗</div>
+          <div class="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full bg-brick text-white text-[13px] font-bold flex items-center justify-center z-20">1</div>
+        </div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">링크 공유</span><span class="en">Share the link</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed max-w-[240px] mx-auto"><span class="ko">유튜브, 인스타, 틱톡에서 요리 영상을 보다가 공유 버튼을 누르고 레시피줍줍을 선택하세요.</span><span class="en">While watching a cooking video, tap share and select RecipeJupJup.</span></p>
+      </div>
+      <div class="text-center relative">
+        <div class="relative w-20 h-20 mx-auto mb-5">
+          <div class="w-20 h-20 rounded-full bg-cream flex items-center justify-center text-3xl shadow-soft relative z-10">✨</div>
+          <div class="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full bg-brick text-white text-[13px] font-bold flex items-center justify-center z-20">2</div>
+        </div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">AI가 자동 정리</span><span class="en">AI extracts</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed max-w-[240px] mx-auto"><span class="ko">몇 초 만에 재료, 양, 조리 순서, 조리 시간이 정리된 레시피가 완성됩니다.</span><span class="en">In seconds, ingredients, quantities, steps, and cook time are structured.</span></p>
+      </div>
+      <div class="text-center relative">
+        <div class="relative w-20 h-20 mx-auto mb-5">
+          <div class="w-20 h-20 rounded-full bg-cream flex items-center justify-center text-3xl shadow-soft relative z-10">🍽️</div>
+          <div class="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full bg-brick text-white text-[13px] font-bold flex items-center justify-center z-20">3</div>
+        </div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">요리하고 보관</span><span class="en">Cook &amp; save</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed max-w-[240px] mx-auto"><span class="ko">단계별로 따라 하고, 장보기 리스트를 만든 뒤 나의 쿡북에 영구 보관하세요.</span><span class="en">Follow step by step, build a grocery list, and save it to your cookbook forever.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECIPE SHOWCASE -->
+<section id="recipes" class="py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">
+      <div>
+        <p class="text-[13px] font-semibold text-brick mb-2 ko">요즘 줍줍하는 레시피</p>
+        <p class="text-[13px] font-semibold text-brick mb-2 en">Trending now</p>
+        <h2 class="text-[32px] md:text-[40px] font-bold text-charcoal leading-tight ko">인기 레시피 둘러보기</h2>
+        <h2 class="text-[32px] md:text-[40px] font-bold text-charcoal leading-tight en">Popular recipes</h2>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <span class="chip chip-brick ko">🍚 집밥</span><span class="chip chip-brick en">🍚 Home meal</span>
+        <span class="chip chip-taupe ko">⏱️ 초간단</span><span class="chip chip-taupe en">⏱️ Quick</span>
+        <span class="chip chip-taupe ko">🥗 다이어트</span><span class="chip chip-taupe en">🥗 Diet</span>
+        <span class="chip chip-taupe hidden sm:inline ko">🍰 디저트</span><span class="chip chip-taupe hidden sm:inline en">🍰 Dessert</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="group cursor-pointer">
+        <div class="aspect-[4/5] rounded-thumb bg-tile2 flex items-center justify-center text-6xl mb-2.5 overflow-hidden transition-transform group-hover:scale-[1.02]">🍜</div>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors ko">들기름 막국수</p>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors en">Perilla Oil Noodles</p>
+        <p class="text-[12px] text-taupe mt-0.5 ko">약 15분 · 재료 7개</p>
+        <p class="text-[12px] text-taupe mt-0.5 en">15 min · 7 ingredients</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-[4/5] rounded-thumb bg-tile3 flex items-center justify-center text-6xl mb-2.5 overflow-hidden transition-transform group-hover:scale-[1.02]">🍳</div>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors ko">명란 계란말이</p>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors en">Cod Roe Egg Roll</p>
+        <p class="text-[12px] text-taupe mt-0.5 ko">약 10분 · 재료 4개</p>
+        <p class="text-[12px] text-taupe mt-0.5 en">10 min · 4 ingredients</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-[4/5] rounded-thumb bg-tile4 flex items-center justify-center text-6xl mb-2.5 overflow-hidden transition-transform group-hover:scale-[1.02]">🥘</div>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors ko">김치찌개</p>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors en">Kimchi Stew</p>
+        <p class="text-[12px] text-taupe mt-0.5 ko">약 25분 · 재료 9개</p>
+        <p class="text-[12px] text-taupe mt-0.5 en">25 min · 9 ingredients</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-[4/5] rounded-thumb bg-tile5 flex items-center justify-center text-6xl mb-2.5 overflow-hidden transition-transform group-hover:scale-[1.02]">🥗</div>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors ko">닭가슴살 샐러드</p>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors en">Chicken Breast Salad</p>
+        <p class="text-[12px] text-taupe mt-0.5 ko">약 15분 · 재료 6개</p>
+        <p class="text-[12px] text-taupe mt-0.5 en">15 min · 6 ingredients</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-[4/5] rounded-thumb bg-tile3 flex items-center justify-center text-6xl mb-2.5 overflow-hidden transition-transform group-hover:scale-[1.02]">🍰</div>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors ko">바스크 치즈케이크</p>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors en">Basque Cheesecake</p>
+        <p class="text-[12px] text-taupe mt-0.5 ko">약 50분 · 재료 5개</p>
+        <p class="text-[12px] text-taupe mt-0.5 en">50 min · 5 ingredients</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-[4/5] rounded-thumb bg-tile1 flex items-center justify-center text-6xl mb-2.5 overflow-hidden transition-transform group-hover:scale-[1.02]">🍱</div>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors ko">참치 김밥</p>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors en">Tuna Kimbap</p>
+        <p class="text-[12px] text-taupe mt-0.5 ko">약 30분 · 재료 8개</p>
+        <p class="text-[12px] text-taupe mt-0.5 en">30 min · 8 ingredients</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-[4/5] rounded-thumb bg-tile2 flex items-center justify-center text-6xl mb-2.5 overflow-hidden transition-transform group-hover:scale-[1.02]">🥟</div>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors ko">군만두</p>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors en">Pan-fried Dumplings</p>
+        <p class="text-[12px] text-taupe mt-0.5 ko">약 20분 · 재료 6개</p>
+        <p class="text-[12px] text-taupe mt-0.5 en">20 min · 6 ingredients</p>
+      </div>
+      <div class="group cursor-pointer">
+        <div class="aspect-[4/5] rounded-thumb bg-tile4 flex items-center justify-center text-6xl mb-2.5 overflow-hidden transition-transform group-hover:scale-[1.02]">🍲</div>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors ko">된장찌개</p>
+        <p class="text-[14px] font-semibold text-charcoal group-hover:text-brick transition-colors en">Soybean Paste Stew</p>
+        <p class="text-[12px] text-taupe mt-0.5 ko">약 25분 · 재료 10개</p>
+        <p class="text-[12px] text-taupe mt-0.5 en">25 min · 10 ingredients</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTLIGHT: GROCERY -->
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="order-2 lg:order-1">
+      <p class="text-[13px] font-semibold text-brick mb-3 ko">🛒 장보기</p>
+      <p class="text-[13px] font-semibold text-brick mb-3 en">🛒 Groceries</p>
+      <h2 class="text-[30px] md:text-[38px] font-bold text-charcoal leading-tight mb-5">
+        <span class="ko">마트 동선대로<br>정리되는 장보기</span>
+        <span class="en">A grocery list sorted<br>by store layout</span>
+      </h2>
+      <p class="text-taupe text-[16px] leading-relaxed mb-6">
+        <span class="ko">일주일 치 레시피를 고르면 모든 재료가 하나의 리스트로. 채소·과일 → 육류·수산 → 유제품 → 조미료 순서대로 한국 대형마트 동선에 맞춰 정렬됩니다.</span>
+        <span class="en">Pick a week of recipes and all ingredients compile into one list, sorted by supermarket aisle — produce, meat &amp; fish, dairy, then seasonings.</span>
+      </p>
+      <ul class="space-y-3">
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-brick/10 text-brick text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">레시피 여러 개의 같은 재료가 자동 합산</span><span class="en">Duplicate ingredients across recipes auto-merge</span></li>
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-brick/10 text-brick text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">오프라인에서도 체크 가능</span><span class="en">Check off items even offline</span></li>
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-brick/10 text-brick text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">10개 코너 분류 (채소, 육류, 유제품, 냉동, 곡물, 조미료…)</span><span class="en">10 categories — produce, meat, dairy, frozen, grains, seasonings &amp; more</span></li>
+      </ul>
+    </div>
+    <div class="order-1 lg:order-2 flex justify-center">
+      <div class="phone-frame w-[260px] relative">
+        <div class="phone-notch"></div>
+        <div class="phone-screen" style="aspect-ratio:9/19.5">
+          <div class="status-bar"><span>9:41</span><span>●●●</span></div>
+          <div class="px-4 pt-1 pb-3">
+            <p class="text-[18px] font-bold text-charcoal ko">장보기</p>
+            <p class="text-[18px] font-bold text-charcoal en">Groceries</p>
+            <p class="text-[12px] text-taupe ko">재료 5개</p>
+            <p class="text-[12px] text-taupe en">5 items</p>
+          </div>
+          <div class="px-4 space-y-2.5 pb-4">
+            <div>
+              <p class="text-[11px] font-semibold text-brick mb-1.5 ko">🥬 채소·과일</p>
+              <p class="text-[11px] font-semibold text-brick mb-1.5 en">🥬 Produce</p>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded border-2 border-brick/40"></span><span class="text-[12px] text-charcoal ko">양파 2개</span><span class="text-[12px] text-charcoal en">Onions ×2</span></div>
+                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded bg-brick flex items-center justify-center text-white text-[9px]">✓</span><span class="text-[12px] text-taupe line-through ko">대파 1단</span><span class="text-[12px] text-taupe line-through en">Green onions</span></div>
+              </div>
+            </div>
+            <div>
+              <p class="text-[11px] font-semibold text-brick mb-1.5 ko">🥩 육류·수산</p>
+              <p class="text-[11px] font-semibold text-brick mb-1.5 en">🥩 Meat &amp; Fish</p>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded border-2 border-brick/40"></span><span class="text-[12px] text-charcoal ko">삼겹살 300g</span><span class="text-[12px] text-charcoal en">Pork belly 300g</span></div>
+              </div>
+            </div>
+            <div>
+              <p class="text-[11px] font-semibold text-brick mb-1.5 ko">🥛 유제품·계란</p>
+              <p class="text-[11px] font-semibold text-brick mb-1.5 en">🥛 Dairy &amp; Eggs</p>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded border-2 border-brick/40"></span><span class="text-[12px] text-charcoal ko">계란 1판</span><span class="text-[12px] text-charcoal en">Eggs ×12</span></div>
+                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded border-2 border-brick/40"></span><span class="text-[12px] text-charcoal ko">생크림 200ml</span><span class="text-[12px] text-charcoal en">Heavy cream 200ml</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTLIGHT: MEAL PLAN -->
+<section class="py-24 bg-cream">
+  <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="flex justify-center order-1">
+      <div class="phone-frame w-[260px] relative">
+        <div class="phone-notch"></div>
+        <div class="phone-screen" style="aspect-ratio:9/19.5">
+          <div class="status-bar"><span>9:41</span><span>●●●</span></div>
+          <div class="px-4 pt-1 pb-3 flex items-center justify-between">
+            <p class="text-[18px] font-bold text-charcoal ko">식단</p>
+            <p class="text-[18px] font-bold text-charcoal en">Meal Plan</p>
+            <span class="text-[20px] text-brick">+</span>
+          </div>
+          <div class="flex gap-1.5 px-4 mb-3">
+            <div class="flex-1 text-center py-2 rounded-lg bg-charcoal text-white">
+              <p class="text-[9px] opacity-70 ko">월</p><p class="text-[9px] opacity-70 en">Mon</p>
+              <p class="text-[14px] font-bold">14</p>
+            </div>
+            <div class="flex-1 text-center py-2 rounded-lg bg-sand"><p class="text-[9px] text-taupe ko">화</p><p class="text-[9px] text-taupe en">Tue</p><p class="text-[14px] font-semibold text-charcoal">15</p></div>
+            <div class="flex-1 text-center py-2 rounded-lg bg-sand"><p class="text-[9px] text-taupe ko">수</p><p class="text-[9px] text-taupe en">Wed</p><p class="text-[14px] font-semibold text-charcoal">16</p></div>
+            <div class="flex-1 text-center py-2 rounded-lg bg-sand"><p class="text-[9px] text-taupe ko">목</p><p class="text-[9px] text-taupe en">Thu</p><p class="text-[14px] font-semibold text-charcoal">17</p></div>
+            <div class="flex-1 text-center py-2 rounded-lg bg-sand"><p class="text-[9px] text-taupe ko">금</p><p class="text-[9px] text-taupe en">Fri</p><p class="text-[14px] font-semibold text-charcoal">18</p></div>
+          </div>
+          <div class="px-4 space-y-3">
+            <div class="flex items-center gap-3">
+              <span class="text-lg">🌙</span>
+              <div class="flex-1 bg-white rounded-xl p-2.5 flex items-center gap-2.5 shadow-soft">
+                <div class="w-9 h-9 rounded-lg bg-tile2 flex items-center justify-center text-lg">🍜</div>
+                <div>
+                  <p class="text-[12px] font-semibold text-charcoal ko">들기름 막국수</p>
+                  <p class="text-[12px] font-semibold text-charcoal en">Perilla Noodles</p>
+                  <p class="text-[10px] text-taupe ko">약 15분</p><p class="text-[10px] text-taupe en">15 min</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-lg">🍽️</span>
+              <div class="flex-1 bg-white rounded-xl p-2.5 flex items-center gap-2.5 shadow-soft">
+                <div class="w-9 h-9 rounded-lg bg-tile4 flex items-center justify-center text-lg">🥘</div>
+                <div>
+                  <p class="text-[12px] font-semibold text-charcoal ko">김치찌개</p>
+                  <p class="text-[12px] font-semibold text-charcoal en">Kimchi Stew</p>
+                  <p class="text-[10px] text-taupe ko">약 25분</p><p class="text-[10px] text-taupe en">25 min</p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-lg">🌅</span>
+              <div class="flex-1 border border-dashed border-sand rounded-xl p-3 text-center">
+                <p class="text-[11px] text-taupe ko">+ 레시피 추가</p>
+                <p class="text-[11px] text-taupe en">+ Add recipe</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 bg-cream/95 backdrop-blur border-t border-sand px-6 py-2.5 flex justify-around">
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+              <span class="text-[9px] ko">레시피</span><span class="text-[9px] en">Recipes</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-brick">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span class="text-[9px] font-medium ko">식단</span><span class="text-[9px] font-medium en">Meal</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              <span class="text-[9px] ko">장보기</span><span class="text-[9px] en">Cart</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="order-2">
+      <p class="text-[13px] font-semibold text-brick mb-3 ko">📅 식단</p>
+      <p class="text-[13px] font-semibold text-brick mb-3 en">📅 Meal Plan</p>
+      <h2 class="text-[30px] md:text-[38px] font-bold text-charcoal leading-tight mb-5">
+        <span class="ko">일주일 식단을<br>미리 짜보세요</span>
+        <span class="en">Plan your week<br>ahead of time</span>
+      </h2>
+      <p class="text-taupe text-[16px] leading-relaxed mb-6">
+        <span class="ko">아침·점심·저녁·간식으로 나눠 저장한 레시피를 배치해보세요. 식단에 추가하면 장보기 리스트에 재료가 자동으로 반영됩니다.</span>
+        <span class="en">Arrange saved recipes across breakfast, lunch, dinner, and snacks. Adding to the meal plan automatically updates your grocery list.</span>
+      </p>
+      <ul class="space-y-3">
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-mustard/15 text-mustard text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">주간 캘린더로 한눈에 확인</span><span class="en">Weekly calendar at a glance</span></li>
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-mustard/15 text-mustard text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">자유 노트로 메모 추가 가능</span><span class="en">Add free-text notes to any slot</span></li>
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-mustard/15 text-mustard text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">식단 → 장보기 연동</span><span class="en">Meal plan syncs with grocery list</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="py-16 bg-charcoal">
+  <div class="max-w-6xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div>
+      <p class="text-3xl md:text-4xl font-bold text-white">50K+</p>
+      <p class="text-[13px] text-white/50 mt-1 ko">활성 유저</p><p class="text-[13px] text-white/50 mt-1 en">Active users</p>
+    </div>
+    <div>
+      <p class="text-3xl md:text-4xl font-bold text-tile2">1M+</p>
+      <p class="text-[13px] text-white/50 mt-1 ko">저장된 레시피</p><p class="text-[13px] text-white/50 mt-1 en">Recipes saved</p>
+    </div>
+    <div>
+      <p class="text-3xl md:text-4xl font-bold text-mustard">12K+</p>
+      <p class="text-[13px] text-white/50 mt-1 ko">해먹었어요 인증</p><p class="text-[13px] text-white/50 mt-1 en">Dishes cooked</p>
+    </div>
+    <div>
+      <p class="text-3xl md:text-4xl font-bold text-tile3">4.9★</p>
+      <p class="text-[13px] text-white/50 mt-1 ko">앱스토어 평점</p><p class="text-[13px] text-white/50 mt-1 en">App rating</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" class="py-24">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-center max-w-xl mx-auto mb-14">
+      <p class="text-[13px] font-semibold text-brick mb-3 ko">후기</p>
+      <p class="text-[13px] font-semibold text-brick mb-3 en">Reviews</p>
+      <h2 class="text-[32px] md:text-[40px] font-bold text-charcoal leading-tight mb-4">
+        <span class="ko">집밥 유저들의 이야기</span>
+        <span class="en">What home cooks say</span>
+      </h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="card p-7">
+        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"인스타에서 레시피 볼 때마다 스크린샷만 찍어놓고 묻혔는데, 이제 공유 한 번이면 끝이에요. 재료까지 자동으로 장보기 리스트에 들어가니까 너무 편해요."</p>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"I used to just screenshot recipes on Instagram and lose them. Now one share and it's done — ingredients even go straight into my grocery list."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-tile2 flex items-center justify-center text-[12px] font-semibold text-charcoal">SJ</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">김지은</p><p class="text-[13px] font-semibold text-charcoal en">Seojin Kim</p><p class="text-[11px] text-taupe ko">직장인 · 서울</p><p class="text-[11px] text-taupe en">Office worker · Seoul</p></div>
+        </div>
+      </div>
+      <div class="card p-7">
+        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"유튜브 요리 영상 볼 때 매번 일시정지하면서 받아 적었는데 타임스탬프 기능이 진짜 신세계예요. 필요한 부분으로 바로 점프하니까 요리가 훨씬 수월해졌어요."</p>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"I used to pause YouTube constantly to jot things down. The timestamp feature is a game changer — I jump straight to the step I need."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-tile4 flex items-center justify-center text-[12px] font-semibold text-charcoal">MK</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">박민수</p><p class="text-[13px] font-semibold text-charcoal en">Minsoo Park</p><p class="text-[11px] text-taupe ko">아빠 요리사 · 부산</p><p class="text-[11px] text-taupe en">Dad cook · Busan</p></div>
+        </div>
+      </div>
+      <div class="card p-7">
+        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"장보기 리스트가 마트 코너별로 정렬되는 거 진짜 최고. 예전엔 채소 사고 육류 갔다가 다시 조미료 사러 돌아갔는데 이제 동선이 딱 정리돼요."</p>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"The grocery list sorted by aisle is the best. I used to zigzag across the store — now my route is perfectly organized."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-tile3 flex items-center justify-center text-[12px] font-semibold text-charcoal">LY</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">이서연</p><p class="text-[13px] font-semibold text-charcoal en">Seoyeon Lee</p><p class="text-[11px] text-taupe ko">자취 3년차 · 경기</p><p class="text-[11px] text-taupe en">Living alone 3 yrs · Gyeonggi</p></div>
+        </div>
+      </div>
+      <div class="card p-7">
+        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"다이어트 식단 관리하는데 식단 기능이 정말 유용해요. 일주일 치 미리 짜놓으면 장보기까지 연동되니까 군것질도 줄고 좋아요."</p>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"The meal planner is really useful for my diet. Pre-planning the week and having it sync to groceries cuts down on snacking too."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-tile5 flex items-center justify-center text-[12px] font-semibold text-charcoal">DE</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">정다은</p><p class="text-[13px] font-semibold text-charcoal en">Daeun Jung</p><p class="text-[11px] text-taupe ko">대학원생 · 인천</p><p class="text-[11px] text-taupe en">Grad student · Incheon</p></div>
+        </div>
+      </div>
+      <div class="card p-7">
+        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"해먹었어요 버튼 누르는 맛이 있어요. 내가 실제로 만든 레시피가 쌓이니까 뿌듯하고, 다음에 또 만들 때도 찾기 쉬워요."</p>
+        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"I love tapping the 'I cooked it' button. Watching my cooked recipes stack up feels rewarding and makes them easy to find again."</p>
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-tile1 flex items-center justify-center text-[12px] font-semibold text-charcoal">JH</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">최준호</p><p class="text-[13px] font-semibold text-charcoal en">Junho Choi</p><p class="text-[11px] text-taupe ko">요리 입문자 · 대전</p><p class="text-[11px] text-taupe en">Beginner cook · Daejeon</p></div>
+        </div>
+      </div>
+      <div class="card p-7 bg-brick text-white relative overflow-hidden">
+        <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/10"></div>
+        <div class="relative">
+          <div class="flex text-mustard text-sm mb-3">★★★★★</div>
+          <p class="text-[14px] leading-relaxed mb-5 ko">"카카오로 로그인하니까 아이디 새로 안 만들어도 돼서 좋았어요. 앱도 가볍고 인터페이스가 깔끔해서 엄마도 깔아서 쓰고 계세요."</p>
+          <p class="text-[14px] leading-relaxed mb-5 en">"Logging in with Kakao meant no new account to make. The app is light and the interface is clean — even my mom uses it now."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-[12px] font-semibold">SY</div>
+            <div><p class="text-[13px] font-semibold ko">한소영</p><p class="text-[13px] font-semibold en">Soyoung Han</p><p class="text-[11px] text-white/60 ko">주부 · 대구</p><p class="text-[11px] text-white/60 en">Homemaker · Daegu</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 bg-white">
+  <div class="max-w-3xl mx-auto px-5">
+    <div class="text-center mb-14">
+      <p class="text-[13px] font-semibold text-brick mb-3">FAQ</p>
+      <h2 class="text-[32px] md:text-[40px] font-bold text-charcoal leading-tight">
+        <span class="ko">자주 묻는 질문</span><span class="en">Frequently asked questions</span>
+      </h2>
+    </div>
+    <div class="space-y-3">
+      <div class="faq-item bg-cream rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left" onclick="toggleFaq(this)">
+          <span class="text-[15px] font-semibold text-charcoal pr-4 ko">어떤 영상에서 레시피를 가져올 수 있나요?</span>
+          <span class="text-[15px] font-semibold text-charcoal pr-4 en">What videos can I extract recipes from?</span>
+          <span class="faq-icon w-7 h-7 rounded-full bg-brick/10 text-brick flex items-center justify-center text-lg shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-body px-6"><p class="text-[14px] text-taupe leading-relaxed pb-5 ko">YouTube, Instagram 릴스, TikTok 링크를 지원합니다. 영상 속 음성과 자막을 AI가 분석해 재료와 조리 순서를 추출해요. 링크가 없어도 스크린샷이나 직접 입력으로 레시피를 추가할 수 있습니다.</p><p class="text-[14px] text-taupe leading-relaxed pb-5 en">We support YouTube, Instagram Reels, and TikTok links. AI analyzes the audio and subtitles to extract ingredients and steps. You can also add recipes via screenshots or manual entry.</p></div>
+      </div>
+      <div class="faq-item bg-cream rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left" onclick="toggleFaq(this)">
+          <span class="text-[15px] font-semibold text-charcoal pr-4 ko">무료로 사용할 수 있나요?</span>
+          <span class="text-[15px] font-semibold text-charcoal pr-4 en">Is it free to use?</span>
+          <span class="faq-icon w-7 h-7 rounded-full bg-brick/10 text-brick flex items-center justify-center text-lg shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-body px-6"><p class="text-[14px] text-taupe leading-relaxed pb-5 ko">네, 무료 플랜에서는 매주 일정 개수의 레시피를 저장할 수 있어요. 장보기 리스트, 식단 관리, 쿡북 기능은 무료로도 모두 사용 가능합니다. 무제한 저장을 원하시면 레시피줍줍 Pro로 업그레이드하세요.</p><p class="text-[14px] text-taupe leading-relaxed pb-5 en">Yes, the free plan lets you save a set number of recipes per week. Grocery lists, meal planning, and cookbooks are all free. Upgrade to Pro for unlimited saves.</p></div>
+      </div>
+      <div class="faq-item bg-cream rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left" onclick="toggleFaq(this)">
+          <span class="text-[15px] font-semibold text-charcoal pr-4 ko">iOS와 안드로이드 모두 지원되나요?</span>
+          <span class="text-[15px] font-semibold text-charcoal pr-4 en">Is it available on both iOS and Android?</span>
+          <span class="faq-icon w-7 h-7 rounded-full bg-brick/10 text-brick flex items-center justify-center text-lg shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-body px-6"><p class="text-[14px] text-taupe leading-relaxed pb-5 ko">iOS 앱을 우선 출시했으며, Android 버전도 준비 중입니다. iOS에서는 공유 확장을 통해 다른 앱에서 바로 레시피를 저장할 수 있어요.</p><p class="text-[14px] text-taupe leading-relaxed pb-5 en">iOS is available now, with Android coming soon. On iOS, the share extension lets you save recipes directly from other apps.</p></div>
+      </div>
+      <div class="faq-item bg-cream rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left" onclick="toggleFaq(this)">
+          <span class="text-[15px] font-semibold text-charcoal pr-4 ko">저장한 레시피는 어디에 보관되나요?</span>
+          <span class="text-[15px] font-semibold text-charcoal pr-4 en">Where are my saved recipes stored?</span>
+          <span class="faq-icon w-7 h-7 rounded-full bg-brick/10 text-brick flex items-center justify-center text-lg shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-body px-6"><p class="text-[14px] text-taupe leading-relaxed pb-5 ko">카카오 또는 Google 계정으로 로그인하시면 클라우드에 안전하게 저장됩니다. 기기를 바꿔도 같은 계정으로 로그인하면 모든 레시피, 쿡북, 식단, 장보기 리스트가 그대로 유지돼요.</p><p class="text-[14px] text-taupe leading-relaxed pb-5 en">Log in with Kakao or Google and your recipes are safely stored in the cloud. Switch devices and log back in to find all your recipes, cookbooks, meal plans, and grocery lists intact.</p></div>
+      </div>
+      <div class="faq-item bg-cream rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left" onclick="toggleFaq(this)">
+          <span class="text-[15px] font-semibold text-charcoal pr-4 ko">'줍줍'이 무슨 뜻인가요?</span>
+          <span class="text-[15px] font-semibold text-charcoal pr-4 en">What does "JupJup" mean?</span>
+          <span class="faq-icon w-7 h-7 rounded-full bg-brick/10 text-brick flex items-center justify-center text-lg shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-body px-6"><p class="text-[14px] text-taupe leading-relaxed pb-5 ko">'줍줍'은 여기저기 흩어진 것을 주워 모으는 귀여운 표현이에요. 인터넷 여기저기 흩어져 있는 레시피를 주워서(줍줍해서) 나만의 쿡북에 모아두세요 🥢</p><p class="text-[14px] text-taupe leading-relaxed pb-5 en">"JupJup" is Korean slang for picking up little things scattered around. Pick up recipes from all over the internet and gather them into your own cookbook 🥢</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="download" class="py-24">
+  <div class="max-w-4xl mx-auto px-5">
+    <div class="bg-charcoal rounded-[24px] px-8 py-14 md:p-16 text-center text-white relative overflow-hidden">
+      <div class="absolute top-8 left-8 text-4xl opacity-15">🍳</div>
+      <div class="absolute bottom-8 right-8 text-4xl opacity-15">🍜</div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brick/20 rounded-full blur-3xl"></div>
+      <div class="relative z-10">
+        <h2 class="text-[32px] md:text-[44px] font-bold leading-tight mb-4"><span class="ko">오늘부터 줍줍하세요 🥢</span><span class="en">Start JupJuping today 🥢</span></h2>
+        <p class="text-white/60 text-[16px] max-w-md mx-auto mb-10"><span class="ko">매일 요리하는 5만 명의 집밥 유저와 함께하세요.</span><span class="en">Join 50,000 home cooks who save recipes every day.</span></p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="#" class="inline-flex items-center gap-2.5 bg-white text-charcoal px-6 py-3.5 rounded-xl font-semibold hover:bg-cream transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <div class="text-left leading-tight"><div class="text-[10px] opacity-60 font-normal">Download on the</div><div class="text-[15px]">App Store</div></div>
+          </a>
+          <a href="#" class="inline-flex items-center gap-2.5 bg-white/10 border border-white/20 text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-white/15 transition-colors">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 1.8L13.8 12 3.6 22.2a1 1 0 01-.6-.9V2.7c0-.4.24-.72.6-.9zM14.5 12.7l2.5 2.5-10.1 5.8 7.6-8.3zm3.6-3.6l2.5 1.4c.58.33.58 1.16 0 1.5l-2.5 1.4-2.7-2.7z"/></svg>
+            <div class="text-left leading-tight"><div class="text-[10px] opacity-60 font-normal">GET IT ON</div><div class="text-[15px]">Google Play</div></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-sand bg-cream py-14">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid md:grid-cols-4 gap-10 mb-10">
+      <div class="md:col-span-1">
+        <a href="#" class="flex items-center gap-2 mb-3">
+          <div class="w-9 h-9 rounded-xl bg-brick flex items-center justify-center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"/><line x1="6" y1="17" x2="18" y2="17"/></svg>
+          </div>
+          <span class="text-[17px] font-bold text-charcoal"><span class="ko">레시피<span class="text-brick">줍줍</span></span><span class="en">Recipe<span class="text-brick">JupJup</span></span></span>
+        </a>
+        <p class="text-[13px] text-taupe leading-relaxed ko">요리 영상 속 레시피를 한 번에 줍줍하세요.</p>
+        <p class="text-[13px] text-taupe leading-relaxed en">Pick up every recipe from cooking videos.</p>
+      </div>
+      <div>
+        <p class="text-[13px] font-bold text-charcoal mb-3 ko">제품</p><p class="text-[13px] font-bold text-charcoal mb-3 en">Product</p>
+        <ul class="space-y-2 text-[13px] text-taupe">
+          <li><a href="#features" class="hover:text-brick"><span class="ko">기능</span><span class="en">Features</span></a></li>
+          <li><a href="#how" class="hover:text-brick"><span class="ko">사용법</span><span class="en">How it works</span></a></li>
+          <li><a href="#download" class="hover:text-brick"><span class="ko">다운로드</span><span class="en">Download</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[13px] font-bold text-charcoal mb-3 ko">지원</p><p class="text-[13px] font-bold text-charcoal mb-3 en">Support</p>
+        <ul class="space-y-2 text-[13px] text-taupe">
+          <li><a href="#faq" class="hover:text-brick">FAQ</a></li>
+          <li><a href="/privacy" class="hover:text-brick ko">개인정보 처리방침</a><a href="/privacy" class="hover:text-brick en">Privacy Policy</a></li>
+          <li><a href="/terms" class="hover:text-brick ko">이용약관</a><a href="/terms" class="hover:text-brick en">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[13px] font-bold text-charcoal mb-3">SNS</p>
+        <div class="flex gap-2">
+          <a href="#" class="w-9 h-9 rounded-lg bg-sand flex items-center justify-center text-[14px] hover:bg-brick hover:text-white transition-colors">📷</a>
+          <a href="#" class="w-9 h-9 rounded-lg bg-sand flex items-center justify-center text-[14px] hover:bg-brick hover:text-white transition-colors">💬</a>
+          <a href="#" class="w-9 h-9 rounded-lg bg-sand flex items-center justify-center text-[14px] hover:bg-brick hover:text-white transition-colors">📺</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-sand pt-6 text-center text-[12px] text-taupe">
+      © 2026 <span class="ko">레시피줍줍</span><span class="en">RecipeJupJup</span>. Made with 🧡
+    </div>
+  </div>
+</footer>
+
+<script>
+// Language toggle
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  try { localStorage.setItem('rjj-lang', lang); } catch(e) {}
+  // Update title/description
+  const titles = {
+    ko: '레시피줍줍 — 요리 영상 속 레시피를 한 번에',
+    en: 'RecipeJupJup — Pick up every recipe from cooking videos'
+  };
+  const descs = {
+    ko: '유튜브, 인스타, 틱톡 요리 영상을 레시피로. 재료·조리순서·장보기까지 자동으로 정리해주는 레시피줍줍.',
+    en: 'Turn YouTube, Instagram, and TikTok cooking videos into recipes. Auto-organized ingredients, steps, and grocery lists.'
+  };
+  document.title = titles[lang];
+  document.querySelector('meta[name="description"]').setAttribute('content', descs[lang]);
+}
+(function initLang(){
+  let saved = 'ko';
+  try { saved = localStorage.getItem('rjj-lang') || 'ko'; } catch(e) {}
+  setLang(saved);
+})();
+
+// Navbar scroll
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+// FAQ
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
 </body>
 </html>
