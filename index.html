@@ -118,7 +118,11 @@ tailwind.config = {
       <a href="#faq"><span class="ko">FAQ</span><span class="en">FAQ</span></a>
     </div>
     <div class="flex items-center gap-3">
-      <a href="#download" class="btn-primary text-[13px] px-4 py-2">
+      <div class="lang-toggle">
+        <button onclick="setLang('ko')" id="btn-ko">KO</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+      </div>
+      <a href="#download" class="btn-primary text-[13px] px-4 py-2 hidden sm:inline-block">
         <span class="ko">앱 다운로드</span><span class="en">Download</span>
       </a>
     </div>
@@ -636,8 +640,8 @@ tailwind.config = {
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"인스타에서 레시피 볼 때마다 스크린샷만 찍어놓고 묻혔는데, 이제 공유 한 번이면 끝이에요. 재료까지 자동으로 장보기 리스트에 들어가니까 너무 편해요."</p>
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"I used to just screenshot recipes on Instagram and lose them. Now one share and it's done — ingredients even go straight into my grocery list."</p>
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile2 flex items-center justify-center text-[12px] font-semibold text-charcoal">SJ</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">김지은</p><p class="text-[13px] font-semibold text-charcoal en">Seojin Kim</p><p class="text-[11px] text-taupe ko">직장인 · 서울</p><p class="text-[11px] text-taupe en">Office worker · Seoul</p></div>
+          <div class="w-9 h-9 rounded-full bg-tile2 flex items-center justify-center text-[12px] font-semibold text-charcoal">RH</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">@recipe_hoarder</p><p class="text-[13px] font-semibold text-charcoal en">@recipe_hoarder</p><p class="text-[11px] text-taupe ko">직장인 · 서울</p><p class="text-[11px] text-taupe en">Office worker · San Francisco</p></div>
         </div>
       </div>
       <div class="card p-7">
@@ -645,8 +649,8 @@ tailwind.config = {
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"유튜브 요리 영상 볼 때 매번 일시정지하면서 받아 적었는데 타임스탬프 기능이 진짜 신세계예요. 필요한 부분으로 바로 점프하니까 요리가 훨씬 수월해졌어요."</p>
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"I used to pause YouTube constantly to jot things down. The timestamp feature is a game changer — I jump straight to the step I need."</p>
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile4 flex items-center justify-center text-[12px] font-semibold text-charcoal">MK</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">박민수</p><p class="text-[13px] font-semibold text-charcoal en">Minsoo Park</p><p class="text-[11px] text-taupe ko">아빠 요리사 · 부산</p><p class="text-[11px] text-taupe en">Dad cook · Busan</p></div>
+          <div class="w-9 h-9 rounded-full bg-tile4 flex items-center justify-center text-[12px] font-semibold text-charcoal">DC</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">@dad_cooks</p><p class="text-[13px] font-semibold text-charcoal en">@dad_cooks</p><p class="text-[11px] text-taupe ko">아빠 요리사 · 부산</p><p class="text-[11px] text-taupe en">Dad cook · Chicago</p></div>
         </div>
       </div>
       <div class="card p-7">
@@ -654,8 +658,8 @@ tailwind.config = {
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"장보기 리스트가 마트 코너별로 정렬되는 거 진짜 최고. 예전엔 채소 사고 육류 갔다가 다시 조미료 사러 돌아갔는데 이제 동선이 딱 정리돼요."</p>
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"The grocery list sorted by aisle is the best. I used to zigzag across the store — now my route is perfectly organized."</p>
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile3 flex items-center justify-center text-[12px] font-semibold text-charcoal">LY</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">이서연</p><p class="text-[13px] font-semibold text-charcoal en">Seoyeon Lee</p><p class="text-[11px] text-taupe ko">자취 3년차 · 경기</p><p class="text-[11px] text-taupe en">Living alone 3 yrs · Gyeonggi</p></div>
+          <div class="w-9 h-9 rounded-full bg-tile3 flex items-center justify-center text-[12px] font-semibold text-charcoal">SS</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">@solo.simmer</p><p class="text-[13px] font-semibold text-charcoal en">@solo.simmer</p><p class="text-[11px] text-taupe ko">자취 3년차 · 경기</p><p class="text-[11px] text-taupe en">Living solo 3 yrs · Toronto</p></div>
         </div>
       </div>
       <div class="card p-7">
@@ -663,8 +667,8 @@ tailwind.config = {
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"다이어트 식단 관리하는데 식단 기능이 정말 유용해요. 일주일 치 미리 짜놓으면 장보기까지 연동되니까 군것질도 줄고 좋아요."</p>
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"The meal planner is really useful for my diet. Pre-planning the week and having it sync to groceries cuts down on snacking too."</p>
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile5 flex items-center justify-center text-[12px] font-semibold text-charcoal">DE</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">정다은</p><p class="text-[13px] font-semibold text-charcoal en">Daeun Jung</p><p class="text-[11px] text-taupe ko">대학원생 · 인천</p><p class="text-[11px] text-taupe en">Grad student · Incheon</p></div>
+          <div class="w-9 h-9 rounded-full bg-tile5 flex items-center justify-center text-[12px] font-semibold text-charcoal">MA</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">@mealprep_ash</p><p class="text-[13px] font-semibold text-charcoal en">@mealprep_ash</p><p class="text-[11px] text-taupe ko">대학원생 · 인천</p><p class="text-[11px] text-taupe en">Grad student · London</p></div>
         </div>
       </div>
       <div class="card p-7">
@@ -672,8 +676,8 @@ tailwind.config = {
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"해먹었어요 버튼 누르는 맛이 있어요. 내가 실제로 만든 레시피가 쌓이니까 뿌듯하고, 다음에 또 만들 때도 찾기 쉬워요."</p>
         <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"I love tapping the 'I cooked it' button. Watching my cooked recipes stack up feels rewarding and makes them easy to find again."</p>
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile1 flex items-center justify-center text-[12px] font-semibold text-charcoal">JH</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">최준호</p><p class="text-[13px] font-semibold text-charcoal en">Junho Choi</p><p class="text-[11px] text-taupe ko">요리 입문자 · 대전</p><p class="text-[11px] text-taupe en">Beginner cook · Daejeon</p></div>
+          <div class="w-9 h-9 rounded-full bg-tile1 flex items-center justify-center text-[12px] font-semibold text-charcoal">FP</div>
+          <div><p class="text-[13px] font-semibold text-charcoal ko">@first_time_pan</p><p class="text-[13px] font-semibold text-charcoal en">@first_time_pan</p><p class="text-[11px] text-taupe ko">요리 입문자 · 대전</p><p class="text-[11px] text-taupe en">Beginner cook · Melbourne</p></div>
         </div>
       </div>
       <div class="card p-7 bg-brick text-white relative overflow-hidden">
@@ -681,10 +685,10 @@ tailwind.config = {
         <div class="relative">
           <div class="flex text-mustard text-sm mb-3">★★★★★</div>
           <p class="text-[14px] leading-relaxed mb-5 ko">"카카오로 로그인하니까 아이디 새로 안 만들어도 돼서 좋았어요. 앱도 가볍고 인터페이스가 깔끔해서 엄마도 깔아서 쓰고 계세요."</p>
-          <p class="text-[14px] leading-relaxed mb-5 en">"Logging in with Kakao meant no new account to make. The app is light and the interface is clean — even my mom uses it now."</p>
+          <p class="text-[14px] leading-relaxed mb-5 en">"Logging in with Google meant no new account to make. The app is light and the interface is clean — even my mom uses it now."</p>
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-[12px] font-semibold">SY</div>
-            <div><p class="text-[13px] font-semibold ko">한소영</p><p class="text-[13px] font-semibold en">Soyoung Han</p><p class="text-[11px] text-white/60 ko">주부 · 대구</p><p class="text-[11px] text-white/60 en">Homemaker · Daegu</p></div>
+            <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-[12px] font-semibold">HK</div>
+            <div><p class="text-[13px] font-semibold ko">@home.kitchen</p><p class="text-[13px] font-semibold en">@home.kitchen</p><p class="text-[11px] text-white/60 ko">주부 · 대구</p><p class="text-[11px] text-white/60 en">Homemaker · Paris</p></div>
           </div>
         </div>
       </div>
@@ -806,8 +810,29 @@ tailwind.config = {
 </footer>
 
 <script>
-// 한국어 전용 (영어 토글 제거) — .en 요소는 html[lang="ko"] CSS 로 숨김 처리됨.
-document.documentElement.lang = 'ko';
+// Language toggle
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  try { localStorage.setItem('rjj-lang', lang); } catch(e) {}
+  // Update title/description
+  const titles = {
+    ko: '레시피줍줍 — 요리 영상 속 레시피를 한 번에',
+    en: 'RecipeJupJup — Pick up every recipe from cooking videos'
+  };
+  const descs = {
+    ko: '유튜브, 인스타, 틱톡 요리 영상을 레시피로. 재료·조리순서·장보기까지 자동으로 정리해주는 레시피줍줍.',
+    en: 'Turn YouTube, Instagram, and TikTok cooking videos into recipes. Auto-organized ingredients, steps, and grocery lists.'
+  };
+  document.title = titles[lang];
+  document.querySelector('meta[name="description"]').setAttribute('content', descs[lang]);
+}
+(function initLang(){
+  let saved = 'ko';
+  try { saved = localStorage.getItem('rjj-lang') || 'ko'; } catch(e) {}
+  setLang(saved);
+})();
 
 // FAQ
 function toggleFaq(btn) {

@@ -8,8 +8,14 @@
     :root { --cream:#FBF6EE; --card:#FFF; --sand:#EFE7D9; --charcoal:#2E2A26; --taupe:#8C857B; --brick:#B5533C; }
     * { box-sizing:border-box; margin:0; padding:0; }
     body { font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Segoe UI",Roboto,sans-serif; background:var(--cream); color:var(--charcoal); line-height:1.7; -webkit-font-smoothing:antialiased; }
+    html[lang="en"] .ko{display:none!important}
+    html[lang="ko"] .en{display:none!important}
     .wrap { max-width:720px; margin:0 auto; padding:48px 24px 72px; }
-    .back { display:inline-block; color:var(--brick); text-decoration:none; font-size:14px; margin-bottom:24px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+    .back { display:inline-block; color:var(--brick); text-decoration:none; font-size:14px; }
+    .lang-toggle { display:inline-flex; background:var(--sand); border-radius:999px; padding:3px; font-size:12px; font-weight:600; }
+    .lang-toggle button { padding:4px 12px; border-radius:999px; color:var(--taupe); transition:all .2s; border:none; background:none; cursor:pointer; font:inherit; }
+    .lang-toggle button.active { background:#fff; color:var(--brick); box-shadow:0 1px 3px rgba(46,42,38,.08); }
     h1 { font-size:28px; letter-spacing:-0.02em; margin-bottom:6px; }
     .eff { color:var(--taupe); font-size:13px; margin-bottom:32px; }
     h2 { font-size:18px; margin:28px 0 8px; }
@@ -25,32 +31,51 @@
 </head>
 <body>
   <div class="wrap">
-    <a class="back" href="/">← 레시피줍줍</a>
-    <h1>개인정보처리방침</h1>
-    <p class="eff">시행일: 2026년 8월 14일</p>
+    <div class="topbar">
+      <a class="back" href="/">← <span class="ko">레시피줍줍</span><span class="en">RecipeJupJup</span></a>
+      <div class="lang-toggle">
+        <button onclick="setLang('ko')" id="btn-ko">KO</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+      </div>
+    </div>
 
-    <p>Oasis Studio(이하 "회사")는 이용자의 개인정보를 중요하게 생각하며, 「개인정보 보호법」 등 관련 법령을 준수합니다. 본 방침은 서비스 "레시피줍줍"에서 개인정보를 어떻게 수집·이용·보관·파기하는지 설명합니다.</p>
+    <h1><span class="ko">개인정보처리방침</span><span class="en">Privacy Policy</span></h1>
+    <p class="eff"><span class="ko">시행일: 2026년 8월 14일</span><span class="en">Effective date: August 14, 2026</span></p>
 
-    <h2>1. 수집하는 개인정보 항목</h2>
-    <table>
+    <p><span class="ko">Oasis Studio(이하 "회사")는 이용자의 개인정보를 중요하게 생각하며, 「개인정보 보호법」 등 관련 법령을 준수합니다. 본 방침은 서비스 "레시피줍줍"에서 개인정보를 어떻게 수집·이용·보관·파기하는지 설명합니다.</span><span class="en">Oasis Studio ("the Company") values your privacy and complies with applicable data protection laws. This policy explains how personal data is collected, used, stored, and deleted in the "RecipeJupJup" service.</span></p>
+
+    <h2><span class="ko">1. 수집하는 개인정보 항목</span><span class="en">1. Personal Data We Collect</span></h2>
+    <table class="ko">
       <tr><th>구분</th><th>항목</th><th>수집 시점</th></tr>
       <tr><td>계정 식별</td><td>로그인 제공자 고유 식별자(UID), 이메일 주소, 표시 이름(제공 시)</td><td>소셜 로그인 시</td></tr>
       <tr><td>서비스 이용</td><td>이용자가 저장한 레시피·태그·식단·장보기 목록, 주간 사용량 카운트</td><td>서비스 이용 중</td></tr>
       <tr><td>추출 입력</td><td>이용자가 공유한 공개 콘텐츠 URL 및 그 공개 메타데이터</td><td>레시피 임포트 시</td></tr>
     </table>
-    <p class="eff">※ 회사는 별도의 이메일/비밀번호 가입을 운영하지 않으며, 비밀번호를 저장하지 않습니다.</p>
+    <table class="en">
+      <tr><th>Category</th><th>Data</th><th>When collected</th></tr>
+      <tr><td>Account identity</td><td>Login provider unique identifier (UID), email address, display name (if provided)</td><td>At social login</td></tr>
+      <tr><td>Service usage</td><td>Recipes, tags, meal plans, and grocery lists you save; weekly usage counts</td><td>While using the service</td></tr>
+      <tr><td>Extraction input</td><td>Public content URLs you share and their public metadata</td><td>When importing a recipe</td></tr>
+    </table>
+    <p class="eff"><span class="ko">※ 회사는 별도의 이메일/비밀번호 가입을 운영하지 않으며, 비밀번호를 저장하지 않습니다.</span><span class="en">Note: The Company does not operate separate email/password sign-up and does not store passwords.</span></p>
 
-    <h2>2. 개인정보의 이용 목적</h2>
-    <ul>
+    <h2><span class="ko">2. 개인정보의 이용 목적</span><span class="en">2. Purpose of Use</span></h2>
+    <ul class="ko">
       <li>회원 식별 및 계정 기반 데이터 동기화</li>
       <li>레시피 추출·정리 및 영양정보 계산 기능 제공</li>
       <li>무료 사용 한도 관리 및 부정 이용 방지</li>
       <li>서비스 운영·개선 및 문의 응대</li>
     </ul>
+    <ul class="en">
+      <li>Member identification and account-based data synchronization</li>
+      <li>Providing recipe extraction/organization and nutrition calculation features</li>
+      <li>Managing free usage limits and preventing abuse</li>
+      <li>Operating and improving the service, and responding to inquiries</li>
+    </ul>
 
-    <h2>3. 제3자 처리위탁 및 국외 이전</h2>
-    <p>서비스 제공을 위해 다음의 제3자 서비스를 이용하며, 이 과정에서 필요한 최소한의 정보가 처리될 수 있습니다.</p>
-    <table>
+    <h2><span class="ko">3. 제3자 처리위탁 및 국외 이전</span><span class="en">3. Third-Party Processing and Overseas Transfer</span></h2>
+    <p><span class="ko">서비스 제공을 위해 다음의 제3자 서비스를 이용하며, 이 과정에서 필요한 최소한의 정보가 처리될 수 있습니다.</span><span class="en">To provide the service, we use the following third-party services, which may process the minimum information necessary.</span></p>
+    <table class="ko">
       <tr><th>수탁자</th><th>처리 목적</th></tr>
       <tr><td>Google Firebase (Authentication)</td><td>로그인 및 계정 관리</td></tr>
       <tr><td>Anthropic</td><td>레시피 텍스트 추출·구조화 (AI 처리)</td></tr>
@@ -58,26 +83,54 @@
       <tr><td>Kakao / Google / Apple</td><td>소셜 로그인 인증</td></tr>
       <tr><td>Railway (호스팅)</td><td>백엔드 서버 운영</td></tr>
     </table>
-    <p class="eff">위 수탁자 중 일부는 국외에 서버를 두고 있어 개인정보가 국외로 이전될 수 있습니다.</p>
+    <table class="en">
+      <tr><th>Processor</th><th>Purpose</th></tr>
+      <tr><td>Google Firebase (Authentication)</td><td>Login and account management</td></tr>
+      <tr><td>Anthropic</td><td>Recipe text extraction and structuring (AI processing)</td></tr>
+      <tr><td>ScrapeCreators</td><td>Retrieving public social media content metadata</td></tr>
+      <tr><td>Kakao / Google / Apple</td><td>Social login authentication</td></tr>
+      <tr><td>Railway (hosting)</td><td>Backend server operation</td></tr>
+    </table>
+    <p class="eff"><span class="ko">위 수탁자 중 일부는 국외에 서버를 두고 있어 개인정보가 국외로 이전될 수 있습니다.</span><span class="en">Some of the processors above operate servers overseas, so personal data may be transferred internationally.</span></p>
 
-    <h2>4. 보관 및 파기</h2>
-    <ul>
+    <h2><span class="ko">4. 보관 및 파기</span><span class="en">4. Retention and Deletion</span></h2>
+    <ul class="ko">
       <li>개인정보는 회원 탈퇴 시 지체 없이 파기합니다.</li>
       <li>관련 법령에 따라 보존이 필요한 경우 해당 기간 동안 보관 후 파기합니다.</li>
     </ul>
+    <ul class="en">
+      <li>Personal data is deleted without delay upon account termination.</li>
+      <li>Where retention is required by law, data is kept for the required period and then deleted.</li>
+    </ul>
 
-    <h2>5. 이용자의 권리</h2>
-    <p>이용자는 언제든지 자신의 개인정보에 대한 열람·정정·삭제·처리정지를 요구할 수 있으며, 앱 내 계정 삭제 또는 아래 연락처를 통해 요청할 수 있습니다.</p>
+    <h2><span class="ko">5. 이용자의 권리</span><span class="en">5. Your Rights</span></h2>
+    <p><span class="ko">이용자는 언제든지 자신의 개인정보에 대한 열람·정정·삭제·처리정지를 요구할 수 있으며, 앱 내 계정 삭제 또는 아래 연락처를 통해 요청할 수 있습니다.</span><span class="en">You may at any time request access to, correction of, deletion of, or suspension of processing of your personal data, either by deleting your account in the app or by contacting us below.</span></p>
 
-    <h2>6. 개인정보 보호책임자</h2>
-    <p>개인정보 관련 문의: <a href="mailto:help@oasisstudio.net" style="color:var(--brick)">help@oasisstudio.net</a></p>
+    <h2><span class="ko">6. 개인정보 보호책임자</span><span class="en">6. Data Protection Contact</span></h2>
+    <p><span class="ko">개인정보 관련 문의: </span><span class="en">Privacy inquiries: </span><a href="mailto:help@oasisstudio.net" style="color:var(--brick)">help@oasisstudio.net</a></p>
 
-    <h2>7. 방침의 변경</h2>
-    <p>본 방침은 법령·서비스 변경에 따라 개정될 수 있으며, 개정 시 시행일과 변경내용을 본 페이지를 통해 공지합니다.</p>
+    <h2><span class="ko">7. 방침의 변경</span><span class="en">7. Changes to This Policy</span></h2>
+    <p><span class="ko">본 방침은 법령·서비스 변경에 따라 개정될 수 있으며, 개정 시 시행일과 변경내용을 본 페이지를 통해 공지합니다.</span><span class="en">This policy may be revised in line with legal or service changes. When revised, the effective date and changes will be announced on this page.</span></p>
 
     <footer>
-      © 2026 Oasis Studio · <a href="/terms">이용약관</a>
+      © 2026 Oasis Studio · <a href="/terms"><span class="ko">이용약관</span><span class="en">Terms of Service</span></a>
     </footer>
   </div>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      try { localStorage.setItem('rjj-lang', lang); } catch(e) {}
+      const titles = { ko: '개인정보처리방침 — 레시피줍줍', en: 'Privacy Policy — RecipeJupJup' };
+      document.title = titles[lang];
+    }
+    (function initLang(){
+      let saved = 'ko';
+      try { saved = localStorage.getItem('rjj-lang') || 'ko'; } catch(e) {}
+      setLang(saved);
+    })();
+  </script>
 </body>
 </html>
