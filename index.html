@@ -313,6 +313,22 @@ tailwind.config = {
         <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">아침·점심·저녁·간식으로 나눠 일주일 치 식단을 짜보세요. 저장한 레시피를 끌어다 놓기만 하면 돼요.</span><span class="en">Plan breakfast, lunch, dinner, and snacks for the week. Just drag your saved recipes in.</span></p>
       </div>
       <div class="card p-7">
+        <div class="flex items-center justify-between mb-5">
+          <div class="w-12 h-12 rounded-xl bg-tile5/60 flex items-center justify-center text-2xl">🥕</div>
+          <span class="chip chip-mustard text-[10px] px-2.5">Plus</span>
+        </div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">냉장고 재료로 요리</span><span class="en">Cook from Your Fridge</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">지금 가진 재료를 입력하면 만들 수 있는 저장 레시피를 보유 재료가 많은 순으로 보여줘요. 부족한 재료도 한눈에 확인할 수 있어요.</span><span class="en">Enter what you have and see which saved recipes you can make — ranked by how many ingredients you already own, with missing items flagged.</span></p>
+      </div>
+      <div class="card p-7">
+        <div class="flex items-center justify-between mb-5">
+          <div class="w-12 h-12 rounded-xl bg-brick/10 flex items-center justify-center text-2xl">📊</div>
+          <span class="chip chip-mustard text-[10px] px-2.5">Plus</span>
+        </div>
+        <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">칼로리·영양 정보</span><span class="en">Calories &amp; Nutrition</span></h3>
+        <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">재료 분량을 바탕으로 칼로리, 단백질, 지방, 탄수화물을 자동 계산해 레시피 화면에서 바로 확인할 수 있어요.</span><span class="en">We calculate calories, protein, fat, and carbs from ingredient amounts — shown right on the recipe screen.</span></p>
+      </div>
+      <div class="card p-7">
         <div class="w-12 h-12 rounded-xl bg-tile4/50 flex items-center justify-center text-2xl mb-5">📔</div>
         <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">나만의 쿡북</span><span class="en">Personal Cookbook</span></h3>
         <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">집밥, 다이어트, 디저트 등 카테고리로 정리하고, 원하는 대로 쿡북을 만들어 레시피를 묶어 보관하세요.</span><span class="en">Organize by category and create custom cookbooks to bundle your recipes together.</span></p>
@@ -601,6 +617,104 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- SPOTLIGHT: FRIDGE -->
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="order-2 lg:order-1">
+      <div class="flex items-center gap-2 mb-3">
+        <p class="text-[13px] font-semibold text-brick ko">🥕 냉장고</p>
+        <p class="text-[13px] font-semibold text-brick en">🥕 Fridge</p>
+        <span class="chip chip-mustard text-[10px] px-2.5">Plus</span>
+      </div>
+      <h2 class="text-[30px] md:text-[38px] font-bold text-charcoal leading-tight mb-5">
+        <span class="ko">가진 재료로<br>바로 만들 수 있는 레시피</span>
+        <span class="en">Recipes you can cook<br>with what you have</span>
+      </h2>
+      <p class="text-taupe text-[16px] leading-relaxed mb-6">
+        <span class="ko">냉장고에 있는 재료를 입력하면 저장한 레시피 중 만들 수 있는 것들을 보유 재료가 많은 순으로 정렬해 보여줘요. 오늘 뭐 해먹을지 더 이상 고민하지 마세요.</span>
+        <span class="en">Type in what's in your fridge and we surface the saved recipes you can make right now — ranked by how many ingredients you already have.</span>
+      </p>
+      <ul class="space-y-3">
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-brick/10 text-brick text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">보유 재료가 많은 순으로 자동 정렬</span><span class="en">Auto-sorted by how many ingredients you own</span></li>
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-brick/10 text-brick text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">부족한 재료만 콕 집어 표시</span><span class="en">Shows exactly which ingredients you're missing</span></li>
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-brick/10 text-brick text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">부족한 재료는 바로 장보기 리스트로</span><span class="en">Add missing items straight to your grocery list</span></li>
+      </ul>
+    </div>
+    <div class="order-1 lg:order-2 flex justify-center">
+      <div class="phone-frame w-[260px] relative">
+        <div class="phone-notch"></div>
+        <div class="phone-screen" style="aspect-ratio:9/19.5">
+          <div class="status-bar"><span>9:41</span><span>●●●</span></div>
+          <div class="px-4 pt-1 pb-3">
+            <p class="text-[18px] font-bold text-charcoal ko">냉장고</p>
+            <p class="text-[18px] font-bold text-charcoal en">Fridge</p>
+          </div>
+          <div class="px-4 pb-3">
+            <div class="flex items-center gap-2 bg-cream rounded-lg px-3 py-2 mb-2">
+              <span class="text-brick text-[14px]">+</span>
+              <span class="text-[11px] text-taupe ko">재료 추가 (예: 계란, 대파)</span>
+              <span class="text-[11px] text-taupe en">Add an ingredient</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="chip chip-brick text-[10px] px-2 py-0.5 ko">계란</span><span class="chip chip-brick text-[10px] px-2 py-0.5 en">Eggs</span>
+              <span class="chip chip-brick text-[10px] px-2 py-0.5 ko">밥</span><span class="chip chip-brick text-[10px] px-2 py-0.5 en">Rice</span>
+              <span class="chip chip-brick text-[10px] px-2 py-0.5 ko">대파</span><span class="chip chip-brick text-[10px] px-2 py-0.5 en">Green onion</span>
+              <span class="chip chip-brick text-[10px] px-2 py-0.5 ko">참치</span><span class="chip chip-brick text-[10px] px-2 py-0.5 en">Tuna</span>
+              <span class="chip chip-brick text-[10px] px-2 py-0.5 ko">김치</span><span class="chip chip-brick text-[10px] px-2 py-0.5 en">Kimchi</span>
+            </div>
+          </div>
+          <div class="px-4">
+            <p class="text-[11px] font-semibold text-taupe mb-2 ko">만들 수 있는 레시피 2개</p>
+            <p class="text-[11px] font-semibold text-taupe mb-2 en">2 recipes you can make</p>
+            <div class="space-y-2">
+              <div class="bg-white rounded-xl p-2.5 shadow-soft border border-sand/60">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-tile2 flex items-center justify-center text-lg">🍚</div>
+                  <div class="flex-1">
+                    <p class="text-[12px] font-semibold text-charcoal ko">참치계란말이밥</p>
+                    <p class="text-[12px] font-semibold text-charcoal en">Tuna Egg Rice</p>
+                    <p class="text-[10px] font-medium text-brick ko">재료 5/5 · 다 있어요! 🎉</p>
+                    <p class="text-[10px] font-medium text-brick en">5/5 ingredients · ready! 🎉</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl p-2.5 shadow-soft border border-sand/60">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-9 h-9 rounded-lg bg-tile3 flex items-center justify-center text-lg">🍲</div>
+                  <div class="flex-1">
+                    <p class="text-[12px] font-semibold text-charcoal ko">두부 김치덮밥</p>
+                    <p class="text-[12px] font-semibold text-charcoal en">Tofu Kimchi Bowl</p>
+                    <p class="text-[10px] text-taupe ko">재료 4/6 · 부족: 두부, 고추장</p>
+                    <p class="text-[10px] text-taupe en">4/6 · missing: tofu, gochujang</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 bg-cream/95 backdrop-blur border-t border-sand px-5 py-2.5 flex justify-around">
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+              <span class="text-[9px] ko">레시피</span><span class="text-[9px] en">Recipes</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-brick">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="9" y1="14" x2="9" y2="14.01"/></svg>
+              <span class="text-[9px] font-medium ko">냉장고</span><span class="text-[9px] font-medium en">Fridge</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span class="text-[9px] ko">식단</span><span class="text-[9px] en">Meal</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+              <span class="text-[9px] ko">장보기</span><span class="text-[9px] en">Cart</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STATS -->
 <section class="py-16 bg-charcoal">
   <div class="max-w-6xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
@@ -720,7 +834,15 @@ tailwind.config = {
           <span class="text-[15px] font-semibold text-charcoal pr-4 en">Is it free to use?</span>
           <span class="faq-icon w-7 h-7 rounded-full bg-brick/10 text-brick flex items-center justify-center text-lg shrink-0 leading-none">+</span>
         </button>
-        <div class="faq-body px-6"><p class="text-[14px] text-taupe leading-relaxed pb-5 ko">네, 무료 플랜에서는 매주 일정 개수의 레시피를 저장할 수 있어요. 장보기 리스트, 식단 관리, 쿡북 기능은 무료로도 모두 사용 가능합니다. 무제한 저장을 원하시면 레시피줍줍 Pro로 업그레이드하세요.</p><p class="text-[14px] text-taupe leading-relaxed pb-5 en">Yes, the free plan lets you save a set number of recipes per week. Grocery lists, meal planning, and cookbooks are all free. Upgrade to Pro for unlimited saves.</p></div>
+        <div class="faq-body px-6"><p class="text-[14px] text-taupe leading-relaxed pb-5 ko">네, 무료 플랜에서는 매주 5개까지 레시피를 저장할 수 있어요. 장보기 리스트, 식단 관리, 쿡북은 무료로 모두 사용 가능합니다. 무제한 저장과 냉장고(가진 재료로 레시피 찾기)·영양 정보는 레시피줍줍 Plus에서 이용하실 수 있어요.</p><p class="text-[14px] text-taupe leading-relaxed pb-5 en">Yes — the free plan lets you save up to 5 recipes per week. Grocery lists, meal planning, and cookbooks are all free. Unlimited saves, Cook-from-your-fridge, and nutrition info are available with RecipeJupJup Plus.</p></div>
+      </div>
+      <div class="faq-item bg-cream rounded-xl overflow-hidden">
+        <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left" onclick="toggleFaq(this)">
+          <span class="text-[15px] font-semibold text-charcoal pr-4 ko">냉장고 기능은 어떻게 작동하나요?</span>
+          <span class="text-[15px] font-semibold text-charcoal pr-4 en">How does the Fridge feature work?</span>
+          <span class="faq-icon w-7 h-7 rounded-full bg-brick/10 text-brick flex items-center justify-center text-lg shrink-0 leading-none">+</span>
+        </button>
+        <div class="faq-body px-6"><p class="text-[14px] text-taupe leading-relaxed pb-5 ko">지금 가진 재료를 냉장고 탭에 입력하면, 저장한 레시피 중 만들 수 있는 것들을 보유 재료가 많은 순으로 정렬해 보여줘요. 부족한 재료도 함께 표시되고, 바로 장보기 리스트에 담을 수 있어요. 냉장고와 영양 정보는 Plus 전용 기능입니다.</p><p class="text-[14px] text-taupe leading-relaxed pb-5 en">Enter the ingredients you have in the Fridge tab and we rank your saved recipes by how many you already own. Missing ingredients are flagged and can be added to your grocery list in one tap. Fridge and nutrition info are Plus features.</p></div>
       </div>
       <div class="faq-item bg-cream rounded-xl overflow-hidden">
         <button class="faq-toggle w-full flex items-center justify-between px-6 py-4 text-left" onclick="toggleFaq(this)">
