@@ -232,10 +232,14 @@ tailwind.config = {
               <div class="flex gap-1.5 mt-1"><span class="chip chip-mustard text-[10px] px-2 py-0"><span class="ko">약 15분</span><span class="en">15 min</span></span></div>
             </div>
           </div>
-          <div class="absolute bottom-0 left-0 right-0 bg-cream/95 backdrop-blur border-t border-sand px-6 py-2.5 flex justify-around">
+          <div class="absolute bottom-0 left-0 right-0 bg-cream/95 backdrop-blur border-t border-sand px-4 py-2.5 flex justify-around">
             <div class="flex flex-col items-center gap-0.5 text-brick">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5a2 2 0 00-2 2v16a2 2 0 002 2h14a2 2 0 002-2V4a2 2 0 00-2-2zm0 18H5V4h14v16z"/><path d="M7 6h10v2H7zM7 10h10v2H7zM7 14h7v2H7z"/></svg>
               <span class="text-[10px] font-medium ko">레시피</span><span class="text-[10px] font-medium en">Recipes</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="9" y1="14" x2="9" y2="14.01"/></svg>
+              <span class="text-[10px] ko">냉장고</span><span class="text-[10px] en">Fridge</span>
             </div>
             <div class="flex flex-col items-center gap-0.5 text-taupe">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -489,35 +493,89 @@ tailwind.config = {
         <div class="phone-notch"></div>
         <div class="phone-screen" style="aspect-ratio:9/19.5">
           <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-          <div class="px-4 pt-1 pb-3">
-            <p class="text-[18px] font-bold text-charcoal ko">장보기</p>
-            <p class="text-[18px] font-bold text-charcoal en">Groceries</p>
-            <p class="text-[12px] text-taupe ko">재료 5개</p>
-            <p class="text-[12px] text-taupe en">5 items</p>
+          <div class="px-4 pt-1 pb-2 flex items-start justify-between">
+            <div>
+              <p class="text-[18px] font-bold text-charcoal ko">장보기</p>
+              <p class="text-[18px] font-bold text-charcoal en">Groceries</p>
+              <p class="text-[10px] text-taupe ko">5개 · 1개 완료</p>
+              <p class="text-[10px] text-taupe en">5 items · 1 done</p>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B5533C" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="12" r="0.5" fill="#B5533C"/><circle cx="12" cy="12" r="0.5" fill="#B5533C"/><circle cx="16" cy="12" r="0.5" fill="#B5533C"/></svg>
           </div>
-          <div class="px-4 space-y-2.5 pb-4">
+          <div class="px-4 space-y-3 pb-20">
             <div>
-              <p class="text-[11px] font-semibold text-brick mb-1.5 ko">🥬 채소·과일</p>
-              <p class="text-[11px] font-semibold text-brick mb-1.5 en">🥬 Produce</p>
+              <div class="flex items-center gap-1.5 bg-sand/70 rounded-lg px-2.5 py-1.5 mb-1.5">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#B5533C"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+                <span class="text-[10px] font-bold text-brick tracking-wide ko">채소·과일</span>
+                <span class="text-[10px] font-bold text-brick tracking-wide en">PRODUCE</span>
+                <span class="ml-auto text-[10px] text-taupe">2</span>
+              </div>
               <div class="space-y-1.5">
-                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded border-2 border-brick/40"></span><span class="text-[12px] text-charcoal ko">양파 2개</span><span class="text-[12px] text-charcoal en">Onions ×2</span></div>
-                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded bg-brick flex items-center justify-center text-white text-[9px]">✓</span><span class="text-[12px] text-taupe line-through ko">대파 1단</span><span class="text-[12px] text-taupe line-through en">Green onions</span></div>
+                <div class="flex items-center gap-2.5 bg-white rounded-xl px-3 py-2 shadow-soft">
+                  <span class="w-5 h-5 rounded-full border-2 border-taupe/50 shrink-0"></span>
+                  <div class="flex-1 leading-tight"><p class="text-[12px] text-charcoal ko">양파</p><p class="text-[12px] text-charcoal en">Onion</p><p class="text-[10px] text-taupe ko">2개</p><p class="text-[10px] text-taupe en">×2</p></div>
+                  <span class="text-taupe text-[14px] leading-none">⋯</span>
+                </div>
+                <div class="flex items-center gap-2.5 bg-white rounded-xl px-3 py-2 shadow-soft">
+                  <span class="w-5 h-5 rounded-full bg-brick flex items-center justify-center text-white text-[10px] shrink-0">✓</span>
+                  <div class="flex-1 leading-tight"><p class="text-[12px] text-taupe line-through ko">대파</p><p class="text-[12px] text-taupe line-through en">Green onion</p><p class="text-[10px] text-taupe ko">1단</p><p class="text-[10px] text-taupe en">1 bunch</p></div>
+                  <span class="text-taupe text-[14px] leading-none">⋯</span>
+                </div>
               </div>
             </div>
             <div>
-              <p class="text-[11px] font-semibold text-brick mb-1.5 ko">🥩 육류·수산</p>
-              <p class="text-[11px] font-semibold text-brick mb-1.5 en">🥩 Meat &amp; Fish</p>
-              <div class="space-y-1.5">
-                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded border-2 border-brick/40"></span><span class="text-[12px] text-charcoal ko">삼겹살 300g</span><span class="text-[12px] text-charcoal en">Pork belly 300g</span></div>
+              <div class="flex items-center gap-1.5 bg-sand/70 rounded-lg px-2.5 py-1.5 mb-1.5">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#B5533C"><path d="M2 12c3-5 8-7 12-7s7 3 8 7c-1 4-4 7-8 7s-9-2-12-7zm14-2a1.2 1.2 0 100 2.4A1.2 1.2 0 0016 10z"/></svg>
+                <span class="text-[10px] font-bold text-brick tracking-wide ko">육류·수산</span>
+                <span class="text-[10px] font-bold text-brick tracking-wide en">MEAT &amp; SEAFOOD</span>
+                <span class="ml-auto text-[10px] text-taupe">1</span>
+              </div>
+              <div class="flex items-center gap-2.5 bg-white rounded-xl px-3 py-2 shadow-soft">
+                <span class="w-5 h-5 rounded-full border-2 border-taupe/50 shrink-0"></span>
+                <div class="flex-1 leading-tight"><p class="text-[12px] text-charcoal ko">삼겹살</p><p class="text-[12px] text-charcoal en">Pork belly</p><p class="text-[10px] text-taupe">300g</p></div>
+                <span class="text-taupe text-[14px] leading-none">⋯</span>
               </div>
             </div>
             <div>
-              <p class="text-[11px] font-semibold text-brick mb-1.5 ko">🥛 유제품·계란</p>
-              <p class="text-[11px] font-semibold text-brick mb-1.5 en">🥛 Dairy &amp; Eggs</p>
-              <div class="space-y-1.5">
-                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded border-2 border-brick/40"></span><span class="text-[12px] text-charcoal ko">계란 1판</span><span class="text-[12px] text-charcoal en">Eggs ×12</span></div>
-                <div class="flex items-center gap-2.5 bg-cream rounded-lg px-3 py-2"><span class="w-4 h-4 rounded border-2 border-brick/40"></span><span class="text-[12px] text-charcoal ko">생크림 200ml</span><span class="text-[12px] text-charcoal en">Heavy cream 200ml</span></div>
+              <div class="flex items-center gap-1.5 bg-sand/70 rounded-lg px-2.5 py-1.5 mb-1.5">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#B5533C"><path d="M4 8h13v5a5 5 0 01-5 5H9a5 5 0 01-5-5V8zm13 1h2a2.5 2.5 0 010 5h-2V9zM4 20h13v1.5H4z"/></svg>
+                <span class="text-[10px] font-bold text-brick tracking-wide ko">유제품·계란·냉장식품</span>
+                <span class="text-[10px] font-bold text-brick tracking-wide en">DAIRY &amp; CHILLED</span>
+                <span class="ml-auto text-[10px] text-taupe">2</span>
               </div>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2.5 bg-white rounded-xl px-3 py-2 shadow-soft">
+                  <span class="w-5 h-5 rounded-full border-2 border-taupe/50 shrink-0"></span>
+                  <div class="flex-1 leading-tight"><p class="text-[12px] text-charcoal ko">계란</p><p class="text-[12px] text-charcoal en">Eggs</p><p class="text-[10px] text-taupe ko">1판</p><p class="text-[10px] text-taupe en">×12</p></div>
+                  <span class="text-taupe text-[14px] leading-none">⋯</span>
+                </div>
+                <div class="flex items-center gap-2.5 bg-white rounded-xl px-3 py-2 shadow-soft">
+                  <span class="w-5 h-5 rounded-full border-2 border-taupe/50 shrink-0"></span>
+                  <div class="flex-1 leading-tight"><p class="text-[12px] text-charcoal ko">생크림</p><p class="text-[12px] text-charcoal en">Heavy cream</p><p class="text-[10px] text-taupe">200ml</p></div>
+                  <span class="text-taupe text-[14px] leading-none">⋯</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FAB -->
+          <div class="absolute right-3 bottom-[52px] w-11 h-11 rounded-full bg-brick flex items-center justify-center text-white text-[22px] leading-none shadow-lg">+</div>
+          <!-- Tab bar -->
+          <div class="absolute bottom-0 left-0 right-0 bg-cream/95 backdrop-blur border-t border-sand px-5 py-2.5 flex justify-around">
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+              <span class="text-[9px] ko">레시피</span><span class="text-[9px] en">Recipes</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="9" y1="14" x2="9" y2="14.01"/></svg>
+              <span class="text-[9px] ko">냉장고</span><span class="text-[9px] en">Fridge</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span class="text-[9px] ko">식단</span><span class="text-[9px] en">Meal</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-brick">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <span class="text-[9px] font-medium ko">장보기</span><span class="text-[9px] font-medium en">Cart</span>
             </div>
           </div>
         </div>
@@ -580,10 +638,14 @@ tailwind.config = {
               </div>
             </div>
           </div>
-          <div class="absolute bottom-0 left-0 right-0 bg-cream/95 backdrop-blur border-t border-sand px-6 py-2.5 flex justify-around">
+          <div class="absolute bottom-0 left-0 right-0 bg-cream/95 backdrop-blur border-t border-sand px-5 py-2.5 flex justify-around">
             <div class="flex flex-col items-center gap-0.5 text-taupe">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
               <span class="text-[9px] ko">레시피</span><span class="text-[9px] en">Recipes</span>
+            </div>
+            <div class="flex flex-col items-center gap-0.5 text-taupe">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="9" y1="14" x2="9" y2="14.01"/></svg>
+              <span class="text-[9px] ko">냉장고</span><span class="text-[9px] en">Fridge</span>
             </div>
             <div class="flex flex-col items-center gap-0.5 text-brick">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
