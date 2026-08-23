@@ -198,13 +198,37 @@ tailwind.config = {
         <div class="phone-notch"></div>
         <div class="phone-screen" style="aspect-ratio:9/19.5">
           <div class="status-bar"><span>9:41</span><span>●●● ◔</span></div>
-          <div class="px-4 pt-2 pb-3">
-            <p class="text-[22px] font-bold text-charcoal"><span class="ko">내 레시피</span><span class="en">My Recipes</span></p>
+          <!-- Header: title + free-quota chip + account -->
+          <div class="px-4 pt-2 pb-2 flex items-center justify-between">
+            <p class="text-[20px] font-bold text-charcoal"><span class="ko">내 레시피</span><span class="en">My Recipes</span></p>
+            <div class="flex items-center gap-2">
+              <span class="inline-flex items-center gap-1 text-[10px] font-semibold text-charcoal px-2 py-1 rounded-full" style="background:rgba(214,155,60,.4)">✨ <span class="ko">3회 남음</span><span class="en">3 left</span></span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="#B5533C"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 5a3 3 0 110 6 3 3 0 010-6zm0 13a8 8 0 01-5.3-2c.05-1.6 3.5-2.5 5.3-2.5s5.25.9 5.3 2.5A8 8 0 0112 20z"/></svg>
+            </div>
           </div>
-          <div class="flex gap-2 px-4 pb-3 overflow-hidden">
-            <span class="chip chip-brick whitespace-nowrap"><span class="ko">🍚 집밥</span><span class="en">🍚 Home meal</span></span>
+          <!-- Search -->
+          <div class="px-4 pb-2">
+            <div class="flex items-center gap-2 bg-white rounded-xl px-3 py-2 shadow-soft">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8C857B" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span class="text-[11px] text-taupe ko">레시피, 재료, 태그 검색</span><span class="text-[11px] text-taupe en">Search recipes, ingredients, tags</span>
+            </div>
+          </div>
+          <!-- Summary strip -->
+          <div class="px-4 pb-2">
+            <div class="bg-white rounded-xl shadow-soft flex items-center justify-around py-2">
+              <div class="text-center"><p class="text-[14px] font-bold text-charcoal leading-none">24</p><p class="text-[8px] text-taupe mt-0.5 ko">저장</p><p class="text-[8px] text-taupe mt-0.5 en">Saved</p></div>
+              <div class="w-px h-6 bg-sand"></div>
+              <div class="text-center"><p class="text-[14px] font-bold text-charcoal leading-none">3</p><p class="text-[8px] text-taupe mt-0.5 ko">쿡북</p><p class="text-[8px] text-taupe mt-0.5 en">Cookbooks</p></div>
+              <div class="w-px h-6 bg-sand"></div>
+              <div class="text-center"><p class="text-[14px] font-bold text-charcoal leading-none">8</p><p class="text-[8px] text-taupe mt-0.5 ko">해먹음</p><p class="text-[8px] text-taupe mt-0.5 en">Cooked</p></div>
+            </div>
+          </div>
+          <!-- Category pills -->
+          <div class="flex gap-1.5 px-4 pb-3 overflow-hidden">
+            <span class="chip chip-brick whitespace-nowrap"><span class="ko">🍽️ 전체</span><span class="en">🍽️ All</span></span>
+            <span class="chip chip-taupe whitespace-nowrap"><span class="ko">🍚 집밥</span><span class="en">🍚 Home cooking</span></span>
             <span class="chip chip-taupe whitespace-nowrap"><span class="ko">🥗 다이어트</span><span class="en">🥗 Diet</span></span>
-            <span class="chip chip-taupe whitespace-nowrap"><span class="ko">⏱️ 초간단</span><span class="en">⏱️ Quick</span></span>
+            <span class="chip chip-taupe whitespace-nowrap"><span class="ko">⏱️ 초간단</span><span class="en">⏱️ Super easy</span></span>
           </div>
           <div class="px-4 grid grid-cols-2 gap-3">
             <div>
@@ -314,7 +338,7 @@ tailwind.config = {
       <div class="card p-7">
         <div class="w-12 h-12 rounded-xl bg-tile3/60 flex items-center justify-center text-2xl mb-5">📅</div>
         <h3 class="text-[17px] font-bold text-charcoal mb-2"><span class="ko">주간 식단 관리</span><span class="en">Weekly Meal Plan</span></h3>
-        <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">아침·점심·저녁·간식으로 나눠 일주일 치 식단을 짜보세요. 저장한 레시피를 끌어다 놓기만 하면 돼요.</span><span class="en">Plan breakfast, lunch, dinner, and snacks for the week. Just drag your saved recipes in.</span></p>
+        <p class="text-[14px] text-taupe leading-relaxed"><span class="ko">아침·점심·저녁·간식으로 나눠 일주일 치 식단을 짜보세요. 저장한 레시피를 탭 한 번으로 배치할 수 있어요.</span><span class="en">Plan breakfast, lunch, dinner, and snacks for the week. Add your saved recipes with a single tap.</span></p>
       </div>
       <div class="card p-7">
         <div class="flex items-center justify-between mb-5">
@@ -401,8 +425,8 @@ tailwind.config = {
         <h2 class="text-[32px] md:text-[40px] font-bold text-charcoal leading-tight en">Popular recipes</h2>
       </div>
       <div class="flex gap-2 flex-wrap">
-        <span class="chip chip-brick ko">🍚 집밥</span><span class="chip chip-brick en">🍚 Home meal</span>
-        <span class="chip chip-taupe ko">⏱️ 초간단</span><span class="chip chip-taupe en">⏱️ Quick</span>
+        <span class="chip chip-brick ko">🍚 집밥</span><span class="chip chip-brick en">🍚 Home cooking</span>
+        <span class="chip chip-taupe ko">⏱️ 초간단</span><span class="chip chip-taupe en">⏱️ Super easy</span>
         <span class="chip chip-taupe ko">🥗 다이어트</span><span class="chip chip-taupe en">🥗 Diet</span>
         <span class="chip chip-taupe hidden sm:inline ko">🍰 디저트</span><span class="chip chip-taupe hidden sm:inline en">🍰 Dessert</span>
       </div>
@@ -571,11 +595,11 @@ tailwind.config = {
             </div>
             <div class="flex flex-col items-center gap-0.5 text-taupe">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span class="text-[9px] ko">식단</span><span class="text-[9px] en">Meal</span>
+              <span class="text-[9px] ko">식단</span><span class="text-[9px] en">Meal Plan</span>
             </div>
             <div class="flex flex-col items-center gap-0.5 text-brick">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-              <span class="text-[9px] font-medium ko">장보기</span><span class="text-[9px] font-medium en">Cart</span>
+              <span class="text-[9px] font-medium ko">장보기</span><span class="text-[9px] font-medium en">Groceries</span>
             </div>
           </div>
         </div>
@@ -592,50 +616,64 @@ tailwind.config = {
         <div class="phone-notch"></div>
         <div class="phone-screen" style="aspect-ratio:9/19.5">
           <div class="status-bar"><span>9:41</span><span>●●●</span></div>
-          <div class="px-4 pt-1 pb-3 flex items-center justify-between">
+          <!-- Header: title + overflow menu -->
+          <div class="px-4 pt-1 pb-2 flex items-center justify-between">
             <p class="text-[18px] font-bold text-charcoal ko">식단</p>
             <p class="text-[18px] font-bold text-charcoal en">Meal Plan</p>
-            <span class="text-[20px] text-brick">+</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B5533C" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="12" r="0.6" fill="#B5533C"/><circle cx="12" cy="12" r="0.6" fill="#B5533C"/><circle cx="16" cy="12" r="0.6" fill="#B5533C"/></svg>
           </div>
-          <div class="flex gap-1.5 px-4 mb-3">
-            <div class="flex-1 text-center py-2 rounded-lg bg-charcoal text-white">
-              <p class="text-[9px] opacity-70 ko">월</p><p class="text-[9px] opacity-70 en">Mon</p>
-              <p class="text-[14px] font-bold">14</p>
-            </div>
-            <div class="flex-1 text-center py-2 rounded-lg bg-sand"><p class="text-[9px] text-taupe ko">화</p><p class="text-[9px] text-taupe en">Tue</p><p class="text-[14px] font-semibold text-charcoal">15</p></div>
-            <div class="flex-1 text-center py-2 rounded-lg bg-sand"><p class="text-[9px] text-taupe ko">수</p><p class="text-[9px] text-taupe en">Wed</p><p class="text-[14px] font-semibold text-charcoal">16</p></div>
-            <div class="flex-1 text-center py-2 rounded-lg bg-sand"><p class="text-[9px] text-taupe ko">목</p><p class="text-[9px] text-taupe en">Thu</p><p class="text-[14px] font-semibold text-charcoal">17</p></div>
-            <div class="flex-1 text-center py-2 rounded-lg bg-sand"><p class="text-[9px] text-taupe ko">금</p><p class="text-[9px] text-taupe en">Fri</p><p class="text-[14px] font-semibold text-charcoal">18</p></div>
+          <!-- Week range nav -->
+          <div class="flex items-center justify-between px-4 pb-3">
+            <span class="w-7 h-7 rounded-full bg-sand flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E2A26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+            <p class="text-[12px] font-semibold text-charcoal ko">8월 18 – 24</p>
+            <p class="text-[12px] font-semibold text-charcoal en">Aug 18 – 24</p>
+            <span class="w-7 h-7 rounded-full bg-sand flex items-center justify-center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E2A26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
           </div>
-          <div class="px-4 space-y-3">
-            <div class="flex items-center gap-3">
-              <span class="text-lg">🌙</span>
-              <div class="flex-1 bg-white rounded-xl p-2.5 flex items-center gap-2.5 shadow-soft">
-                <div class="w-9 h-9 rounded-lg bg-tile2 flex items-center justify-center text-lg">🍚</div>
-                <div>
-                  <p class="text-[12px] font-semibold text-charcoal ko">참치계란말이밥</p>
-                  <p class="text-[12px] font-semibold text-charcoal en">Tuna Egg Rice</p>
-                  <p class="text-[10px] text-taupe ko">약 15분</p><p class="text-[10px] text-taupe en">15 min</p>
+          <div class="px-4 space-y-2.5">
+            <!-- Today's day card -->
+            <div class="bg-white rounded-2xl shadow-soft p-3">
+              <div class="mb-2">
+                <p class="text-[12px] font-bold text-brick ko">오늘</p><p class="text-[12px] font-bold text-brick en">Today</p>
+                <p class="text-[9px] text-taupe ko">월요일</p><p class="text-[9px] text-taupe en">Monday</p>
+              </div>
+              <!-- Breakfast (empty) -->
+              <div class="bg-cream rounded-xl px-2.5 py-2 mb-1.5">
+                <div class="flex items-center gap-1.5">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B5533C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="23" y1="22" x2="1" y2="22"/><polyline points="8 6 12 2 16 6"/></svg>
+                  <span class="text-[11px] font-semibold text-charcoal ko">아침</span><span class="text-[11px] font-semibold text-charcoal en">Breakfast</span>
+                  <span class="ml-auto text-brick text-[15px] leading-none">＋</span>
+                </div>
+                <p class="text-[9px] text-taupe mt-1 ko">아직 없어요</p><p class="text-[9px] text-taupe mt-1 en">Nothing planned yet</p>
+              </div>
+              <!-- Lunch -->
+              <div class="bg-cream rounded-xl px-2.5 py-2 mb-1.5">
+                <div class="flex items-center gap-1.5">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B5533C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><line x1="12" y1="1.5" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.5" y2="12"/><line x1="4.2" y1="4.2" x2="6" y2="6"/><line x1="18" y1="18" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6" y2="18"/><line x1="18" y1="6" x2="19.8" y2="4.2"/></svg>
+                  <span class="text-[11px] font-semibold text-charcoal ko">점심</span><span class="text-[11px] font-semibold text-charcoal en">Lunch</span>
+                  <span class="ml-auto text-brick text-[15px] leading-none">＋</span>
+                </div>
+                <div class="flex items-center gap-1.5 mt-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brick/40 shrink-0"></span>
+                  <span class="text-[11px] text-charcoal ko">참치계란말이밥</span><span class="text-[11px] text-charcoal en">Tuna Egg Rice</span>
+                </div>
+              </div>
+              <!-- Dinner -->
+              <div class="bg-cream rounded-xl px-2.5 py-2">
+                <div class="flex items-center gap-1.5">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B5533C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+                  <span class="text-[11px] font-semibold text-charcoal ko">저녁</span><span class="text-[11px] font-semibold text-charcoal en">Dinner</span>
+                  <span class="ml-auto text-brick text-[15px] leading-none">＋</span>
+                </div>
+                <div class="flex items-center gap-1.5 mt-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brick/40 shrink-0"></span>
+                  <span class="text-[11px] text-charcoal ko">배추 소고기 찜</span><span class="text-[11px] text-charcoal en">Braised Beef</span>
                 </div>
               </div>
             </div>
-            <div class="flex items-center gap-3">
-              <span class="text-lg">🍽️</span>
-              <div class="flex-1 bg-white rounded-xl p-2.5 flex items-center gap-2.5 shadow-soft">
-                <div class="w-9 h-9 rounded-lg bg-tile4 flex items-center justify-center text-lg">🥘</div>
-                <div>
-                  <p class="text-[12px] font-semibold text-charcoal ko">배추 소고기 찜</p>
-                  <p class="text-[12px] font-semibold text-charcoal en">Braised Beef</p>
-                  <p class="text-[10px] text-taupe ko">약 40분</p><p class="text-[10px] text-taupe en">40 min</p>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="text-lg">🌅</span>
-              <div class="flex-1 border border-dashed border-sand rounded-xl p-3 text-center">
-                <p class="text-[11px] text-taupe ko">+ 레시피 추가</p>
-                <p class="text-[11px] text-taupe en">+ Add recipe</p>
-              </div>
+            <!-- Next day peek -->
+            <div class="bg-white rounded-2xl shadow-soft p-3 opacity-60">
+              <p class="text-[12px] font-bold text-charcoal ko">8/19</p><p class="text-[12px] font-bold text-charcoal en">Aug 19</p>
+              <p class="text-[9px] text-taupe ko">화요일</p><p class="text-[9px] text-taupe en">Tuesday</p>
             </div>
           </div>
           <div class="absolute bottom-0 left-0 right-0 bg-cream/95 backdrop-blur border-t border-sand px-5 py-2.5 flex justify-around">
@@ -649,11 +687,11 @@ tailwind.config = {
             </div>
             <div class="flex flex-col items-center gap-0.5 text-brick">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span class="text-[9px] font-medium ko">식단</span><span class="text-[9px] font-medium en">Meal</span>
+              <span class="text-[9px] font-medium ko">식단</span><span class="text-[9px] font-medium en">Meal Plan</span>
             </div>
             <div class="flex flex-col items-center gap-0.5 text-taupe">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-              <span class="text-[9px] ko">장보기</span><span class="text-[9px] en">Cart</span>
+              <span class="text-[9px] ko">장보기</span><span class="text-[9px] en">Groceries</span>
             </div>
           </div>
         </div>
@@ -667,13 +705,13 @@ tailwind.config = {
         <span class="en">Plan your week<br>ahead of time</span>
       </h2>
       <p class="text-taupe text-[16px] leading-relaxed mb-6">
-        <span class="ko">아침·점심·저녁·간식으로 나눠 저장한 레시피를 배치해보세요. 식단에 추가하면 장보기 리스트에 재료가 자동으로 반영됩니다.</span>
-        <span class="en">Arrange saved recipes across breakfast, lunch, dinner, and snacks. Adding to the meal plan automatically updates your grocery list.</span>
+        <span class="ko">아침·점심·저녁·간식으로 나눠 저장한 레시피를 탭 한 번으로 배치해보세요. 이번 주가 마음에 들면 다음 주로 그대로 복사할 수 있어요.</span>
+        <span class="en">Tap to drop saved recipes into breakfast, lunch, dinner, or snacks. Love this week's plan? Copy it straight to next week.</span>
       </p>
       <ul class="space-y-3">
-        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-mustard/15 text-mustard text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">주간 캘린더로 한눈에 확인</span><span class="en">Weekly calendar at a glance</span></li>
-        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-mustard/15 text-mustard text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">자유 노트로 메모 추가 가능</span><span class="en">Add free-text notes to any slot</span></li>
-        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-mustard/15 text-mustard text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">식단 → 장보기 연동</span><span class="en">Meal plan syncs with grocery list</span></li>
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-mustard/15 text-mustard text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">주간 캘린더로 하루하루 한눈에 확인</span><span class="en">A weekly calendar, day by day at a glance</span></li>
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-mustard/15 text-mustard text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">레시피가 없어도 자유 노트로 메모</span><span class="en">Jot free-text notes even without a recipe</span></li>
+        <li class="flex items-start gap-3 text-[14px] text-charcoal"><span class="w-5 h-5 rounded-full bg-mustard/15 text-mustard text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span><span class="ko">이번 주 식단을 다음 주로 복사</span><span class="en">Copy this week's plan to the next</span></li>
       </ul>
     </div>
   </div>
@@ -730,24 +768,32 @@ tailwind.config = {
             <p class="text-[11px] font-semibold text-taupe mb-2 en">2 recipes you can make</p>
             <div class="space-y-2">
               <div class="bg-white rounded-xl p-2.5 shadow-soft border border-sand/60">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-9 h-9 rounded-lg bg-tile2 flex items-center justify-center text-lg">🍚</div>
+                <div class="flex items-start gap-2.5">
+                  <div class="w-11 h-11 rounded-lg bg-tile2 flex items-center justify-center text-lg shrink-0">🍚</div>
                   <div class="flex-1">
                     <p class="text-[12px] font-semibold text-charcoal ko">참치계란말이밥</p>
                     <p class="text-[12px] font-semibold text-charcoal en">Tuna Egg Rice</p>
-                    <p class="text-[10px] font-medium text-brick ko">재료 5/5 · 다 있어요! 🎉</p>
-                    <p class="text-[10px] font-medium text-brick en">5/5 ingredients · ready! 🎉</p>
+                    <p class="text-[10px] font-medium text-brick mt-0.5 ko">재료 5/5</p>
+                    <p class="text-[10px] font-medium text-brick mt-0.5 en">5/5 ingredients</p>
+                    <p class="text-[10px] font-medium text-mustard ko">다 있어요! 🎉</p>
+                    <p class="text-[10px] font-medium text-mustard en">You have everything! 🎉</p>
                   </div>
                 </div>
               </div>
               <div class="bg-white rounded-xl p-2.5 shadow-soft border border-sand/60">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-9 h-9 rounded-lg bg-tile3 flex items-center justify-center text-lg">🍲</div>
+                <div class="flex items-start gap-2.5">
+                  <div class="w-11 h-11 rounded-lg bg-tile3 flex items-center justify-center text-lg shrink-0">🍲</div>
                   <div class="flex-1">
                     <p class="text-[12px] font-semibold text-charcoal ko">두부 김치덮밥</p>
                     <p class="text-[12px] font-semibold text-charcoal en">Tofu Kimchi Bowl</p>
-                    <p class="text-[10px] text-taupe ko">재료 4/6 · 부족: 두부, 고추장</p>
-                    <p class="text-[10px] text-taupe en">4/6 · missing: tofu, gochujang</p>
+                    <p class="text-[10px] font-medium text-brick mt-0.5 ko">재료 4/6</p>
+                    <p class="text-[10px] font-medium text-brick mt-0.5 en">4/6 ingredients</p>
+                    <p class="text-[9px] text-taupe mt-1 ko">부족한 재료</p><p class="text-[9px] text-taupe mt-1 en">Missing</p>
+                    <div class="flex flex-wrap gap-1 mt-0.5">
+                      <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-sand text-charcoal/70 ko">두부</span><span class="text-[9px] px-1.5 py-0.5 rounded-full bg-sand text-charcoal/70 en">Tofu</span>
+                      <span class="text-[9px] px-1.5 py-0.5 rounded-full bg-sand text-charcoal/70 ko">고추장</span><span class="text-[9px] px-1.5 py-0.5 rounded-full bg-sand text-charcoal/70 en">Gochujang</span>
+                    </div>
+                    <p class="text-[9px] font-medium text-brick mt-1.5 ko">🛒 부족한 재료 장보기에 담기</p><p class="text-[9px] font-medium text-brick mt-1.5 en">🛒 Add missing to groceries</p>
                   </div>
                 </div>
               </div>
@@ -764,11 +810,11 @@ tailwind.config = {
             </div>
             <div class="flex flex-col items-center gap-0.5 text-taupe">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              <span class="text-[9px] ko">식단</span><span class="text-[9px] en">Meal</span>
+              <span class="text-[9px] ko">식단</span><span class="text-[9px] en">Meal Plan</span>
             </div>
             <div class="flex flex-col items-center gap-0.5 text-taupe">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-              <span class="text-[9px] ko">장보기</span><span class="text-[9px] en">Cart</span>
+              <span class="text-[9px] ko">장보기</span><span class="text-[9px] en">Groceries</span>
             </div>
           </div>
         </div>
