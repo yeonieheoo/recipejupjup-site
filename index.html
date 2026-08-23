@@ -114,7 +114,6 @@ tailwind.config = {
       <a href="#features"><span class="ko">기능</span><span class="en">Features</span></a>
       <a href="#how"><span class="ko">사용법</span><span class="en">How it works</span></a>
       <a href="#recipes"><span class="ko">레시피</span><span class="en">Recipes</span></a>
-      <a href="#reviews"><span class="ko">후기</span><span class="en">Reviews</span></a>
       <a href="#faq"><span class="ko">FAQ</span><span class="en">FAQ</span></a>
     </div>
     <div class="flex items-center gap-3">
@@ -164,17 +163,9 @@ tailwind.config = {
           </div>
         </a>
       </div>
-      <div class="flex items-center gap-3 pt-3">
-        <div class="flex -space-x-2.5">
-          <div class="w-8 h-8 rounded-full bg-tile2 border-2 border-cream flex items-center justify-center text-[11px] font-semibold text-charcoal">SJ</div>
-          <div class="w-8 h-8 rounded-full bg-tile3 border-2 border-cream flex items-center justify-center text-[11px] font-semibold text-charcoal">MK</div>
-          <div class="w-8 h-8 rounded-full bg-tile4 border-2 border-cream flex items-center justify-center text-[11px] font-semibold text-charcoal">LY</div>
-          <div class="w-8 h-8 rounded-full bg-tile5 border-2 border-cream flex items-center justify-center text-[11px] font-semibold text-charcoal">AR</div>
-        </div>
-        <p class="text-[13px] text-taupe">
-          <span class="ko"><span class="text-brick font-semibold">4.9</span>점 · 매주 새로운 집밥 유저</span>
-          <span class="en"><span class="text-brick font-semibold">4.9</span> rating · home cooks every week</span>
-        </p>
+      <div class="flex items-center gap-2 pt-3 text-[13px] text-taupe">
+        <span class="w-5 h-5 rounded-full bg-brick/10 text-brick text-[11px] font-bold flex items-center justify-center shrink-0">✓</span>
+        <p><span class="ko">무료로 시작 · 카카오·구글 로그인</span><span class="en">Free to start · Kakao &amp; Google login</span></p>
       </div>
     </div>
 
@@ -823,101 +814,6 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- STATS -->
-<section class="py-16 bg-charcoal">
-  <div class="max-w-6xl mx-auto px-5 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-    <div>
-      <p class="text-3xl md:text-4xl font-bold text-white">50K+</p>
-      <p class="text-[13px] text-white/50 mt-1 ko">활성 유저</p><p class="text-[13px] text-white/50 mt-1 en">Active users</p>
-    </div>
-    <div>
-      <p class="text-3xl md:text-4xl font-bold text-tile2">1M+</p>
-      <p class="text-[13px] text-white/50 mt-1 ko">저장된 레시피</p><p class="text-[13px] text-white/50 mt-1 en">Recipes saved</p>
-    </div>
-    <div>
-      <p class="text-3xl md:text-4xl font-bold text-mustard">12K+</p>
-      <p class="text-[13px] text-white/50 mt-1 ko">해먹었어요 인증</p><p class="text-[13px] text-white/50 mt-1 en">Dishes cooked</p>
-    </div>
-    <div>
-      <p class="text-3xl md:text-4xl font-bold text-tile3">4.9★</p>
-      <p class="text-[13px] text-white/50 mt-1 ko">앱스토어 평점</p><p class="text-[13px] text-white/50 mt-1 en">App rating</p>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="reviews" class="py-24">
-  <div class="max-w-6xl mx-auto px-5">
-    <div class="text-center max-w-xl mx-auto mb-14">
-      <p class="text-[13px] font-semibold text-brick mb-3 ko">후기</p>
-      <p class="text-[13px] font-semibold text-brick mb-3 en">Reviews</p>
-      <h2 class="text-[32px] md:text-[40px] font-bold text-charcoal leading-tight mb-4">
-        <span class="ko">집밥 유저들의 이야기</span>
-        <span class="en">What home cooks say</span>
-      </h2>
-    </div>
-    <div class="grid md:grid-cols-3 gap-5">
-      <div class="card p-7">
-        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"인스타에서 레시피 볼 때마다 스크린샷만 찍어놓고 묻혔는데, 이제 공유 한 번이면 끝이에요. 재료까지 자동으로 장보기 리스트에 들어가니까 너무 편해요."</p>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"I used to just screenshot recipes on Instagram and lose them. Now one share and it's done — ingredients even go straight into my grocery list."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile2 flex items-center justify-center text-[12px] font-semibold text-charcoal">RH</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">@recipe_hoarder</p><p class="text-[13px] font-semibold text-charcoal en">@recipe_hoarder</p><p class="text-[11px] text-taupe ko">직장인 · 서울</p><p class="text-[11px] text-taupe en">San Francisco</p></div>
-        </div>
-      </div>
-      <div class="card p-7">
-        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"유튜브 요리 영상 볼 때 매번 일시정지하면서 받아 적었는데 타임스탬프 기능이 진짜 신세계예요. 필요한 부분으로 바로 점프하니까 요리가 훨씬 수월해졌어요."</p>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"I used to pause YouTube constantly to jot things down. The timestamp feature is a game changer — I jump straight to the step I need."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile4 flex items-center justify-center text-[12px] font-semibold text-charcoal">DC</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">@dad_cooks</p><p class="text-[13px] font-semibold text-charcoal en">@dad_cooks</p><p class="text-[11px] text-taupe ko">아빠 요리사 · 부산</p><p class="text-[11px] text-taupe en">Chicago</p></div>
-        </div>
-      </div>
-      <div class="card p-7">
-        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"장보기 리스트가 마트 코너별로 정렬되는 거 진짜 최고. 예전엔 채소 사고 육류 갔다가 다시 조미료 사러 돌아갔는데 이제 동선이 딱 정리돼요."</p>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"The grocery list sorted by aisle is the best. I used to zigzag across the store — now my route is perfectly organized."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile3 flex items-center justify-center text-[12px] font-semibold text-charcoal">SS</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">@solo.simmer</p><p class="text-[13px] font-semibold text-charcoal en">@solo.simmer</p><p class="text-[11px] text-taupe ko">자취 3년차 · 경기</p><p class="text-[11px] text-taupe en">Toronto</p></div>
-        </div>
-      </div>
-      <div class="card p-7">
-        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"다이어트 식단 관리하는데 식단 기능이 정말 유용해요. 일주일 치 미리 짜놓으면 장보기까지 연동되니까 군것질도 줄고 좋아요."</p>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"The meal planner is really useful for my diet. Pre-planning the week and having it sync to groceries cuts down on snacking too."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile5 flex items-center justify-center text-[12px] font-semibold text-charcoal">MA</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">@mealprep_ash</p><p class="text-[13px] font-semibold text-charcoal en">@mealprep_ash</p><p class="text-[11px] text-taupe ko">대학원생 · 인천</p><p class="text-[11px] text-taupe en">London</p></div>
-        </div>
-      </div>
-      <div class="card p-7">
-        <div class="flex text-mustard text-sm mb-3">★★★★★</div>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 ko">"해먹었어요 버튼 누르는 맛이 있어요. 내가 실제로 만든 레시피가 쌓이니까 뿌듯하고, 다음에 또 만들 때도 찾기 쉬워요."</p>
-        <p class="text-[14px] text-charcoal leading-relaxed mb-5 en">"I love tapping the 'I cooked it' button. Watching my cooked recipes stack up feels rewarding and makes them easy to find again."</p>
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-full bg-tile1 flex items-center justify-center text-[12px] font-semibold text-charcoal">FP</div>
-          <div><p class="text-[13px] font-semibold text-charcoal ko">@first_time_pan</p><p class="text-[13px] font-semibold text-charcoal en">@first_time_pan</p><p class="text-[11px] text-taupe ko">요리 입문자 · 대전</p><p class="text-[11px] text-taupe en">Melbourne</p></div>
-        </div>
-      </div>
-      <div class="card p-7 bg-brick text-white relative overflow-hidden">
-        <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/10"></div>
-        <div class="relative">
-          <div class="flex text-mustard text-sm mb-3">★★★★★</div>
-          <p class="text-[14px] leading-relaxed mb-5 ko">"카카오로 로그인하니까 아이디 새로 안 만들어도 돼서 좋았어요. 앱도 가볍고 인터페이스가 깔끔해서 엄마도 깔아서 쓰고 계세요."</p>
-          <p class="text-[14px] leading-relaxed mb-5 en">"Logging in with Google meant no new account to make. The app is light and the interface is clean — even my mom uses it now."</p>
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-[12px] font-semibold">HK</div>
-            <div><p class="text-[13px] font-semibold ko">@home.kitchen</p><p class="text-[13px] font-semibold en">@home.kitchen</p><p class="text-[11px] text-white/60 ko">주부 · 대구</p><p class="text-[11px] text-white/60 en">Paris</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section id="faq" class="py-24 bg-white">
   <div class="max-w-3xl mx-auto px-5">
@@ -989,7 +885,7 @@ tailwind.config = {
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brick/20 rounded-full blur-3xl"></div>
       <div class="relative z-10">
         <h2 class="text-[32px] md:text-[44px] font-bold leading-tight mb-4"><span class="ko">오늘부터 줍줍하세요 🥢</span><span class="en">Start JupJuping today 🥢</span></h2>
-        <p class="text-white/60 text-[16px] max-w-md mx-auto mb-10"><span class="ko">매일 요리하는 5만 명의 집밥 유저와 함께하세요.</span><span class="en">Join 50,000 home cooks who save recipes every day.</span></p>
+        <p class="text-white/60 text-[16px] max-w-md mx-auto mb-10"><span class="ko">요리 영상 속 레시피를 한 번에 정리해보세요.</span><span class="en">Turn your favorite cooking videos into organized recipes.</span></p>
         <div class="flex flex-wrap justify-center gap-3">
           <a href="#" class="inline-flex items-center gap-2.5 bg-white text-charcoal px-6 py-3.5 rounded-xl font-semibold hover:bg-cream transition-colors">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
