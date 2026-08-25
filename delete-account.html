@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>계정 삭제 — 레시피줍줍</title>
+  <style>
+    :root { --cream:#FBF6EE; --card:#FFF; --sand:#EFE7D9; --charcoal:#2E2A26; --taupe:#8C857B; --brick:#B5533C; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Segoe UI",Roboto,sans-serif; background:var(--cream); color:var(--charcoal); line-height:1.7; -webkit-font-smoothing:antialiased; }
+    html[lang="en"] .ko{display:none!important}
+    html[lang="ko"] .en{display:none!important}
+    .wrap { max-width:720px; margin:0 auto; padding:48px 24px 72px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+    .back { display:inline-block; color:var(--brick); text-decoration:none; font-size:14px; }
+    .lang-toggle { display:inline-flex; background:var(--sand); border-radius:999px; padding:3px; font-size:12px; font-weight:600; }
+    .lang-toggle button { padding:4px 12px; border-radius:999px; color:var(--taupe); transition:all .2s; border:none; background:none; cursor:pointer; font:inherit; }
+    .lang-toggle button.active { background:#fff; color:var(--brick); box-shadow:0 1px 3px rgba(46,42,38,.08); }
+    h1 { font-size:28px; letter-spacing:-0.02em; margin-bottom:6px; }
+    .eff { color:var(--taupe); font-size:13px; margin-bottom:32px; }
+    h2 { font-size:18px; margin:28px 0 8px; }
+    p, li { font-size:15px; color:var(--charcoal); }
+    ul, ol { padding-left:20px; }
+    li { margin:4px 0; }
+    table { border-collapse:collapse; width:100%; margin:8px 0; font-size:14px; }
+    th, td { border:1px solid var(--sand); padding:8px 10px; text-align:left; vertical-align:top; }
+    th { background:var(--card); }
+    .card { background:var(--card); border:1px solid var(--sand); border-radius:12px; padding:18px 20px; margin:8px 0; }
+    .muted { color:var(--taupe); font-size:13px; }
+    footer { margin-top:40px; padding-top:20px; border-top:1px solid var(--sand); font-size:13px; color:var(--taupe); }
+    footer a { color:var(--brick); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="/">← <span class="ko">레시피줍줍</span><span class="en">RecipeJupJup</span></a>
+      <div class="lang-toggle">
+        <button onclick="setLang('ko')" id="btn-ko">KO</button>
+        <button onclick="setLang('en')" id="btn-en">EN</button>
+      </div>
+    </div>
+
+    <h1><span class="ko">계정 삭제</span><span class="en">Delete Your Account</span></h1>
+    <p class="eff"><span class="ko">레시피줍줍(Oasis Studio) · 최종 업데이트: 2026년 8월 25일</span><span class="en">RecipeJupJup by Oasis Studio · Last updated: August 25, 2026</span></p>
+
+    <h2><span class="ko">계정 삭제 방법</span><span class="en">How to Request Deletion</span></h2>
+
+    <div class="card">
+      <p class="ko"><strong>앱에서 직접 삭제 (권장)</strong></p>
+      <p class="en"><strong>In the app (recommended)</strong></p>
+      <ol class="ko">
+        <li>레시피줍줍 앱을 열고 로그인합니다.</li>
+        <li>하단 탭에서 <strong>내 정보</strong>로 이동합니다.</li>
+        <li><strong>계정 삭제</strong>를 누르고 확인합니다.</li>
+      </ol>
+      <ol class="en">
+        <li>Open the RecipeJupJup app and sign in.</li>
+        <li>Go to the <strong>Account</strong> tab.</li>
+        <li>Tap <strong>Delete Account</strong> and confirm.</li>
+      </ol>
+      <p class="muted"><span class="ko">삭제는 즉시 처리되며 별도 대기 기간이 없습니다.</span><span class="en">Deletion is processed immediately, with no waiting period.</span></p>
+    </div>
+
+    <div class="card">
+      <p class="ko"><strong>이메일로 요청</strong></p>
+      <p class="en"><strong>By email</strong></p>
+      <p><span class="ko">앱을 삭제했거나 로그인할 수 없는 경우, 계정에 등록된 이메일 주소로 아래 주소에 삭제를 요청해 주세요. 영업일 기준 5일 이내에 처리합니다.</span><span class="en">If you've uninstalled the app or can't sign in, email us from your account's registered email address to request deletion. We process requests within 5 business days.</span></p>
+      <p><a href="mailto:help@oasisstudio.net?subject=계정%20삭제%20요청%20/%20Account%20Deletion%20Request" style="color:var(--brick)">help@oasisstudio.net</a></p>
+    </div>
+
+    <h2><span class="ko">삭제되는 데이터 / 보관되는 데이터</span><span class="en">What Is Deleted / What Is Retained</span></h2>
+    <table class="ko">
+      <tr><th>항목</th><th>처리</th></tr>
+      <tr><td>로그인 계정 (Google / 카카오 연동, 이메일, 표시 이름, 사용자 식별자)</td><td>즉시 영구 삭제</td></tr>
+      <tr><td>서버에 저장된 주간 사용량 카운터</td><td>즉시 영구 삭제</td></tr>
+      <tr><td>레시피 · 식단 · 장보기 목록 · 냉장고 재료</td><td>기기에만 저장되며 회사는 애초에 접근할 수 없습니다. 앱 삭제 또는 재설치 시 함께 사라집니다.</td></tr>
+      <tr><td>법령상 보관 의무가 있는 정보(있는 경우)</td><td>관련 법령이 정한 기간 동안만 보관 후 파기</td></tr>
+    </table>
+    <table class="en">
+      <tr><th>Data</th><th>What happens</th></tr>
+      <tr><td>Sign-in account (Google / Kakao link, email, display name, user identifier)</td><td>Permanently deleted immediately</td></tr>
+      <tr><td>Server-side weekly usage counter</td><td>Permanently deleted immediately</td></tr>
+      <tr><td>Recipes, meal plans, grocery lists, pantry items</td><td>Stored only on your device — the Company never has access to it. Removed when you delete or reinstall the app.</td></tr>
+      <tr><td>Any data subject to a legal retention requirement</td><td>Kept only for the legally required period, then deleted</td></tr>
+    </table>
+
+    <p class="muted"><span class="ko">자세한 내용은 <a href="/privacy" style="color:var(--brick)">개인정보처리방침</a>을 참고해 주세요.</span><span class="en">See our <a href="/privacy" style="color:var(--brick)">Privacy Policy</a> for more detail.</span></p>
+
+    <footer>
+      © 2026 Oasis Studio · <a href="/privacy"><span class="ko">개인정보처리방침</span><span class="en">Privacy Policy</span></a> · <a href="/terms"><span class="ko">이용약관</span><span class="en">Terms of Service</span></a>
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      try { localStorage.setItem('rjj-lang', lang); } catch(e) {}
+      const titles = { ko: '계정 삭제 — 레시피줍줍', en: 'Delete Your Account — RecipeJupJup' };
+      document.title = titles[lang];
+    }
+    (function initLang(){
+      let saved = 'ko';
+      try { saved = localStorage.getItem('rjj-lang') || 'ko'; } catch(e) {}
+      setLang(saved);
+    })();
+  </script>
+</body>
+</html>
